@@ -46,7 +46,12 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 if has("gui_running")
+	if has("win32")
+		set guifont=Ubuntu_Mono_derivative_Powerlin:h10:cEASTEUROPE:qDRAFT
+	else
+		set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
+	endif
+
 	color torte
-	set guifont=Ubuntu_Mono_derivative_Powerlin:h10:cEASTEUROPE:qDRAFT
 	set guioptions-=T
 endif

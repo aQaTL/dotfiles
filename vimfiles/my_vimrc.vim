@@ -47,6 +47,6 @@ behave mswin
 
 if has("gui_running")
 	color torte
-	set guifont=Consolas:h10:cDEFAULT
+	set guifont=Ubuntu_Mono_derivative_Powerlin:h10:cEASTEUROPE:qDRAFT
 	set guioptions-=T
 endif

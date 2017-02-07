@@ -10,7 +10,7 @@ set visualbell
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set noexpandtab
 set smartindent
 
 " Enabled folding on indent level. That way it works on any code & html, xml

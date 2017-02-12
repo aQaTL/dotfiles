@@ -38,6 +38,9 @@ set wildmode=full
 set wrap
 set linebreak
 
+" Spell checking
+set spell spelllang=en_gb
+
 syntax on
 
 set encoding=utf-8

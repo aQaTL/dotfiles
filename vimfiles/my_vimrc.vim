@@ -57,4 +57,8 @@ if has("gui_running")
 
 	color torte
 	set guioptions-=T
+	
+	" Initial gvim window size
+	set lines=60
+	set columns=90
 endif

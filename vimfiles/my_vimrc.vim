@@ -23,6 +23,8 @@ set foldlevelstart=10
 set foldnestmax=10      " no more than 10 fold levels please
 set showmatch
 
+" Use os clipboard instead of vim's internal one
+set clipboard=unnamed
 
 " Searching
 set hlsearch

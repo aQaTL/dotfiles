@@ -40,9 +40,6 @@ set wildmode=full
 set wrap
 set linebreak
 
-" Spell checking
-set spell spelllang=en_gb
-
 syntax on
 
 set encoding=utf-8
@@ -54,12 +51,15 @@ if has("gui_running")
 	if has("win32")
 		set guifont=Ubuntu_Mono_derivative_Powerlin:h10:cEASTEUROPE:qDRAFT
 	else
-		set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
+		set guifont=Ubuntu\ Mono\ 11
 	endif
 
 	color torte
 	set guioptions-=T
-	
+
+	" Spell checking
+	set spell spelllang=en_gb
+
 	" Initial gvim window size
 	set lines=60
 	set columns=100

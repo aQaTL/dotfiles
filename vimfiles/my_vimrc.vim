@@ -40,6 +40,11 @@ set wildmode=full
 set wrap
 set linebreak
 
+" Undo, backup and swp organization
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+
 syntax on
 
 set encoding=utf-8

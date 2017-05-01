@@ -2,6 +2,7 @@
 set ruler
 set nu
 set visualbell
+set nocompatible
 
 " Highlights current line
 "set cursorline
@@ -66,7 +67,7 @@ behave mswin
 
 if has("gui_running")
 	if has("win32")
-		set guifont=Ubuntu_Mono_derivative_Powerlin:h10:cEASTEUROPE:qDRAFT
+		set guifont=Ubuntu_Mono:h12:cEASTEUROPE:qDRAFT
 	else
 		set guifont=Ubuntu\ Mono\ 11
 	endif

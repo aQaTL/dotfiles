@@ -45,13 +45,13 @@ set fileformat=unix
 
 " Undo, backup and swp organization
 if has("win32")
-	set undodir=~/.vim/.undo//
-	set backupdir=~/.vim/.backup//
-	set directory=~/.vim/.swp//
-else
 	set undodir=C:\Users\Maciej\.vim\.undo\
 	set backupdir=C:\Users\Maciej\.vim\.backup\
 	set directory=C:\Users\Maciej\.vim\.swp\
+else
+	set undodir=~/.vim/.undo//
+	set backupdir=~/.vim/.backup//
+	set directory=~/.vim/.swp//
 endif
 
 " Templates

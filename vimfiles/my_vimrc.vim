@@ -40,10 +40,19 @@ set wildmode=full
 set wrap
 set linebreak
 
+" Unix line endings
+set fileformat=unix
+
 " Undo, backup and swp organization
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+if has("win32")
+	set undodir=~/.vim/.undo//
+	set backupdir=~/.vim/.backup//
+	set directory=~/.vim/.swp//
+else
+	set undodir=C:\Users\Maciej\.vim\.undo\
+	set backupdir=C:\Users\Maciej\.vim\.backup\
+	set directory=C:\Users\Maciej\.vim\.swp\
+endif
 
 " Templates
 noremap ;go o{% highlight go %}<Esc>o<Esc>_o{% endhighlight %}<Esc>ki

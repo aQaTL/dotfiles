@@ -1,7 +1,11 @@
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('$HOME/vimfiles/bundle/')
+if has("win32")
+	call vundle#begin('$HOME/vimfiles/bundle/')
+else
+	call vundle#begin()
+endif
 
 Plugin 'VundleVim/Vundle.vim'
 

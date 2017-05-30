@@ -77,7 +77,7 @@ if has("gui_running")
 	set guioptions-=T
 
 	" Spell checking
-	set spell spelllang=en_gb
+	set spell spelllang=en_us
 
 	" Initial gvim window size
 	set lines=60

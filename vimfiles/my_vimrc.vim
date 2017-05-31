@@ -69,9 +69,9 @@ behave mswin
 
 if has("gui_running")
 	if has("win32")
-		set guifont=Ubuntu_Mono:h12:cEASTEUROPE:qDRAFT
+		set guifont=Ubuntu_Mono:h10:cEASTEUROPE:qDRAFT
 	else
-		set guifont=Ubuntu\ Mono\ 12
+		set guifont=Ubuntu\ Mono\ 10
 	endif
 
 	color torte

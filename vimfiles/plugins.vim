@@ -11,6 +11,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'godlygeek/tabular' 
 Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+
 Bundle 'altercation/vim-colors-solarized'
 
 call vundle#end()
@@ -22,3 +24,5 @@ if has('gui_running')
 
 	let g:vim_markdown_frontmatter = 1
 endif
+
+map <C-n> :NERDTreeToggle<CR>

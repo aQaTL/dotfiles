@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'godlygeek/tabular' 
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
 
 Bundle 'altercation/vim-colors-solarized'
 

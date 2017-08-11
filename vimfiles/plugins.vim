@@ -13,12 +13,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
+Plugin 'valloric/youcompleteme'
 
 Bundle 'altercation/vim-colors-solarized'
-
-if has("unix")
-	Plugin 'valloric/youcompleteme'
-endif
 
 call vundle#end()
 filetype plugin indent on

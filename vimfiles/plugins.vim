@@ -13,7 +13,10 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
-" Plugin 'valloric/youcompleteme'
+
+if !has("win32")
+	Plugin 'valloric/youcompleteme'
+endif
 
 Bundle 'altercation/vim-colors-solarized'
 

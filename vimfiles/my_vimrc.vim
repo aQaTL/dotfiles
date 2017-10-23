@@ -6,6 +6,9 @@ set visualbell
 set nocompatible
 set encoding=utf-8
 
+" Recursive search
+set path+=**
+
 " Highlights current line
 "set cursorline
 

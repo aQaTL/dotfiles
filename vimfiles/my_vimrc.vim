@@ -88,6 +88,7 @@ if has("gui_running")
 
 	color torte
 	set guioptions-=T
+	set guioptions-=m
 
 	" Spell checking
 	set spell spelllang=en_us

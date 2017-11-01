@@ -14,6 +14,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 
+"Go auto import
+let g:go_fmt_command = "goimports"
+
 if !has("win32")
 	Plugin 'valloric/youcompleteme'
 endif

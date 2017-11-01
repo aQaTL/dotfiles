@@ -87,8 +87,14 @@ if has("gui_running")
 	endif
 
 	color torte
+
+	"Turn off menu bar and tool bar
 	set guioptions-=T
 	set guioptions-=m
+
+	set guicursor=i:blinkwait0-blinkon0-blinkoff0
+	set guicursor=n:blinkwait0-blinkon0-blinkoff0
+	set guicursor=v:blinkwait0-blinkon0-blinkoff0
 
 	" Spell checking
 	set spell spelllang=en_us

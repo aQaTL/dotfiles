@@ -83,7 +83,7 @@ if has("gui_running")
 	if has("win32")
 		set guifont=Ubuntu_Mono:h10:cEASTEUROPE:qDRAFT
 	else
-		set guifont=Ubuntu\ Mono\ 10
+		set guifont=Ubuntu\ Mono\ 12
 	endif
 
 	color torte
@@ -100,6 +100,6 @@ if has("gui_running")
 	set spell spelllang=en_us
 
 	" Initial gvim window size
-	set lines=60
-	set columns=100
+	set lines=40
+	set columns=90
 endif

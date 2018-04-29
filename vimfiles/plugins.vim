@@ -13,6 +13,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

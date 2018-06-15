@@ -2,4 +2,10 @@
 
 doskey rm=rm -i $*
 doskey pym=python -i C:\dev\python\MinorDev\MathImport.py
-doskey mpv="C:\Programy\mpv\mpv.com" $*
+
+rem Git shortcuts
+doskey gs=git status $*
+doskey gca=git commit -am $*
+doskey gcm=git commit -m $*
+doskey gd=git diff $*
+doskey gp=git push $*

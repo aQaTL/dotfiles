@@ -9,3 +9,4 @@ doskey gca=git commit -am $*
 doskey gcm=git commit -m $*
 doskey gd=git diff $*
 doskey gp=git push $*
+doskey ga=git add $*

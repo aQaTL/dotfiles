@@ -29,7 +29,7 @@ filetype plugin indent on
 
 if has('gui_running')
 	set background=dark
-	colorscheme solarized
+	colorscheme Tomorrow-Night
 
 	let g:vim_markdown_frontmatter = 1
 endif

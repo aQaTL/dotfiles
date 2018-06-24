@@ -6,6 +6,10 @@ set visualbell
 set nocompatible
 set encoding=utf-8
 
+" More natural splits placement 
+set splitbelow
+set splitright
+
 " Recursive search
 set path+=**
 

@@ -93,9 +93,13 @@ if has("gui_running")
 
 	color torte
 
-	"Turn off menu bar and tool bar
+	"Turn off menu bar, tool bar and vertical scroll bars
 	set guioptions-=T
 	set guioptions-=m
+	set guioptions-=r
+	set guioptions-=l
+	set guioptions-=R
+	set guioptions-=L
 
 	set guicursor=i:blinkwait0-blinkon0-blinkoff0
 	set guicursor=n:blinkwait0-blinkon0-blinkoff0

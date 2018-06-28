@@ -2,7 +2,7 @@
 syntax on
 set ruler
 set nu
-set visualbell
+set novisualbell
 set nocompatible
 set encoding=utf-8
 

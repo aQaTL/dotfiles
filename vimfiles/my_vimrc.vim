@@ -2,6 +2,7 @@
 syntax on
 set ruler
 set nu
+set relativenumber
 set novisualbell
 set nocompatible
 set encoding=utf-8

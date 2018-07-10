@@ -88,7 +88,7 @@ behave mswin
 if has("gui_running")
 	if has("win32")
 		" set guifont=Ubuntu_Mono:h10:cEASTEUROPE:qDRAFT
-		set guifont=Consolas:h11
+		set guifont=Tamsyn8x16:h12:b
 	else
 		set guifont=Ubuntu\ Mono\ 12
 	endif

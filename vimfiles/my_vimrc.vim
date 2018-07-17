@@ -90,7 +90,7 @@ if has("gui_running")
 		" set guifont=Ubuntu_Mono:h10:cEASTEUROPE:qDRAFT
 		set guifont=Tamsyn8x16:h12:b
 	else
-		set guifont=Ubuntu\ Mono\ 12
+		set guifont=Fixedsys\ Excelsior\ 12
 	endif
 
 	color torte

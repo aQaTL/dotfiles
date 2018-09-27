@@ -89,7 +89,7 @@ if has("gui_running")
 	if has("win32")
 		set guifont=Go_Mono:h10
 	else
-		set guifont=Ubuntu\ Mono\ 12
+		set guifont=Fixedsys\ Excelsior\ 12
 	endif
 
 	color torte

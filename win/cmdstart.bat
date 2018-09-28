@@ -1,6 +1,7 @@
 @echo off
 
 doskey rm=rm -i $*
+doskey la=ls -a
 doskey pym=python -i C:\dev\python\MinorDev\MathImport.py
 
 rem Git shortcuts

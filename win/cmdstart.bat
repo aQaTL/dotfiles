@@ -12,3 +12,4 @@ doskey gd=git diff $*
 doskey gp=git push $*
 doskey ga=git add $*
 doskey cat=fcat $*
+doskey vscode=code $*

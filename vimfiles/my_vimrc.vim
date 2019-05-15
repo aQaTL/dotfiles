@@ -86,12 +86,8 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 if has("gui_running")
-	if has("win32")
-		set guifont=Ubuntu_Mono:h10
-	else
-		set guifont=Fixedsys\ Excelsior\ 12
-	endif
-
+	set guifont=Liberation_Mono:h10
+	
 	color torte
 
 	"Turn off menu bar, tool bar and vertical scroll bars

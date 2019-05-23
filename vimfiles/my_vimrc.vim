@@ -6,6 +6,7 @@ set relativenumber
 set novisualbell
 set nocompatible
 set encoding=utf-8
+set ttyfast
 
 " More natural splits placement 
 set splitbelow
@@ -82,8 +83,8 @@ noremap Æjs ! python -m json.tool<ENTER>
 " HTML auto-complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
 
 if has("gui_running")
 	set guifont=Liberation_Mono:h10

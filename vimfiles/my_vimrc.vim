@@ -21,7 +21,7 @@ set path+=**
 " Indentation
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0
 set noexpandtab
 set smartindent
 
@@ -34,6 +34,9 @@ set foldenable
 set foldlevelstart=10
 set foldnestmax=10      " no more than 10 fold levels please
 set showmatch
+
+" Sane backspace
+set backspace=indent,eol,start
 
 " Use os clipboard instead of vim's internal one
 set clipboard=unnamed
@@ -79,6 +82,8 @@ map ± :NERDTreeToggle<CR>
 noremap ;go o{% highlight go %}<Esc>o<Esc>_o{% endhighlight %}<Esc>ki
 noremap ;mgo ipackage main<Esc>o<Esc>oimport (<Esc>o	"fmt"<Esc>o<Esc>0c$)<Esc>o<Esc>ofunc main() {<Esc>o	<Esc>_o}<Esc>
 noremap Æjs ! python -m json.tool<ENTER>
+noremap <C-S> :w<ENTER>
+noremap <C-V> "+p<ENTER>
 
 " HTML auto-complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -94,7 +99,6 @@ if has("gui_running")
 	"Turn off menu bar, tool bar and vertical scroll bars
 	set guioptions-=T
 	set guioptions-=m
-	set guioptions-=r
 	set guioptions-=l
 	set guioptions-=R
 	set guioptions-=L

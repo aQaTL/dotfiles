@@ -14,9 +14,13 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
+Plugin 'mattn/emmet-vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
+
+"Fix rust indentation
+let g:rust_recommended_style = 0
 
 if !has("win32")
 	Plugin 'valloric/youcompleteme'

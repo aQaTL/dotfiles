@@ -32,10 +32,11 @@ call vundle#end()
 filetype plugin indent on
 
 if has('gui_running')
-	set background=dark
-	colorscheme Tomorrow-Night
-
 	let g:vim_markdown_frontmatter = 1
+
+	set background=dark
+	"color solarized
 endif
 
 map <C-n> :NERDTreeToggle<CR>
+

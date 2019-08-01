@@ -108,7 +108,7 @@ if has("gui_running")
 	set guicursor=v:blinkwait0-blinkon0-blinkoff0
 
 	" Spell checking
-	set spell spelllang=en_us
+	"set spell spelllang=en_us
 
 	" Initial gvim window size
 	set lines=60

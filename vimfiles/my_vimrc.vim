@@ -83,7 +83,9 @@ noremap ;go o{% highlight go %}<Esc>o<Esc>_o{% endhighlight %}<Esc>ki
 noremap ;mgo ipackage main<Esc>o<Esc>oimport (<Esc>o	"fmt"<Esc>o<Esc>0c$)<Esc>o<Esc>ofunc main() {<Esc>o	<Esc>_o}<Esc>
 noremap Æjs ! python -m json.tool<ENTER>
 noremap <C-S> :w<ENTER>
+noremap <C-C> "+y<ENTER>
 noremap <C-V> "+p<ENTER>
+inoremap <C-V> <C-R>*
 
 " HTML auto-complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags

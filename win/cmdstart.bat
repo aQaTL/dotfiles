@@ -2,7 +2,7 @@
 
 doskey rm=rm -i $*
 doskey la=ls -a $*
-doskey pym=python -i C:\dev\python\MinorDev\MathImport.py
+doskey pym=python -i D:\dev\python\MinorDev\MathImport.py
 
 rem Git shortcuts
 doskey gs=git status $*
@@ -13,5 +13,4 @@ doskey gp=git push $*
 doskey ga=git add $*
 doskey gl=git log --oneline $*
 
-doskey cat=fcat $*
 doskey vscode=code $*

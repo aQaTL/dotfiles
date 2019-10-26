@@ -16,6 +16,7 @@ Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'aserebryakov/vim-todo-lists'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

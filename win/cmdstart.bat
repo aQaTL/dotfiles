@@ -1,4 +1,5 @@
 @echo off
+cls
 
 doskey rm=rm -i $*
 doskey la=ls -a $*
@@ -16,3 +17,4 @@ doskey gl=git log --oneline $*
 doskey vscode=code $*
 
 set PROMPT=$E[96maqatl$E[0m$B$E[33m$P$E[0m$$ 
+

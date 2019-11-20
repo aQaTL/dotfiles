@@ -17,16 +17,13 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'neoclide/coc.nvim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
 
 "Fix rust indentation
 let g:rust_recommended_style = 0
-
-if !has("win32")
-	Plugin 'valloric/youcompleteme'
-endif
 
 call vundle#end()
 filetype plugin indent on

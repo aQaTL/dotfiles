@@ -88,7 +88,7 @@ noremap <C-V> "+p<ENTER>
 inoremap <C-V> <C-R>*
 
 " HTML auto-complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 "source $VIMRUNTIME/mswin.vim
 "behave mswin

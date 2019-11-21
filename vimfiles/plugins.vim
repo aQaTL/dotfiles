@@ -18,6 +18,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc-snippets'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

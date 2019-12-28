@@ -19,6 +19,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'neoclide/coc.nvim'
 Plugin 'neoclide/coc-snippets'
+Plugin 'altercation/vim-colors-solarized'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
@@ -34,7 +35,7 @@ if has('gui_running')
 
 	let base16colorspace=256  " Access colors present in 256 colorspace
 	set background=dark
-	colorscheme base16-material
+	colorscheme solarized
 endif
 
 map <C-n> :NERDTreeToggle<CR>

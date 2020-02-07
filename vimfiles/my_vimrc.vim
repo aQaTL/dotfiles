@@ -25,6 +25,9 @@ set softtabstop=0
 set noexpandtab
 set smartindent
 
+" Turn off stupid esc lag
+set noesckeys
+
 " Enabled folding on indent level. That way it works on any code & html, xml
 " etc. 
 " Setting foldlevelstart ensures that for newly opened files folds are open

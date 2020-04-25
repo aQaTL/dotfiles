@@ -4,6 +4,7 @@ cls
 doskey rm=rm -i $*
 doskey la=ls -a $*
 doskey pym=python -i D:\dev\python\MinorDev\MathImport.py
+doskey py=python3
 
 rem Git shortcuts
 doskey gs=git status $*

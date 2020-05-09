@@ -17,5 +17,7 @@ doskey gl=git log --oneline $*
 
 doskey vscode=code $*
 
+doskey cd=C:\dev\scripts\cd.bat $*
+
 set PROMPT=$E[96maqatl$E[0m$B$E[33m$P$E[0m$$ 
 

@@ -14,6 +14,7 @@ doskey gd=git diff $*
 doskey gp=git push $*
 doskey ga=git add $*
 doskey gl=git log --oneline $*
+doskey gcd1=git clone --depth=1 $*
 
 doskey vscode=code $*
 

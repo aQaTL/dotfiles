@@ -9,7 +9,6 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'aserebryakov/vim-todo-lists'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
 Plug 'altercation/vim-colors-solarized'

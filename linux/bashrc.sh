@@ -22,4 +22,3 @@ PATH="$PATH:$HOME/.local/bin"
 
 PS1="\u|\[\e[33m\]\w\[\e[m\]\\$ "
 
-#export CARGO_TARGET_DIR=$HOME/cargo_target

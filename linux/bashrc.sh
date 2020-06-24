@@ -15,6 +15,7 @@ alias a=bat
 alias py=python3
 alias where=which
 alias docs=rustup\ doc\ --std
+alias start=xdg-open
 
 alias refreshenv=source\ $HOME/.bashrc
 

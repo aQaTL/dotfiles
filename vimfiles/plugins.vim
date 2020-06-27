@@ -27,7 +27,7 @@ if has('gui_running')
 	let g:vim_markdown_frontmatter = 1
 
 	let base16colorspace=256  " Access colors present in 256 colorspace
-	set background=light
+	set background=dark
 	" colorscheme base16-apathy
 	colorscheme solarized
 endif

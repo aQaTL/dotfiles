@@ -21,5 +21,5 @@ alias refreshenv=source\ $HOME/.bashrc
 
 PATH="$PATH:$HOME/.local/bin"
 
-PS1="\u|\[\e[33m\]\w\[\e[m\]\\$ "
+PS1="\[\e[36m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 

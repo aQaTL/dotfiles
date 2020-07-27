@@ -97,7 +97,7 @@ inoremap <C-V> <C-R>*
 "behave mswin
 
 if has("gui_running")
-	set guifont=Cascadia_Code:h10
+	set guifont=Cascadia\ Code\ 11
 	
 	color torte
 

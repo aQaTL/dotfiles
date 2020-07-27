@@ -6,11 +6,13 @@ alias gca="git commit -am"
 alias gl="git log --oneline"
 alias gp="git push"
 alias gd="git diff"
+alias gcd1="git clone --depth=1"
 
-alias ls=exa
-alias cat=bat
-alias less=bat
+alias f=exa
+alias a=bat
 alias py=python3
+
+alias refreshenv="source $HOME/.bashrc"
 
 PATH="$PATH:$HOME/.local/bin"
 

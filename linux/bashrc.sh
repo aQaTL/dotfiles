@@ -25,3 +25,4 @@ PATH="$PATH:$HOME/.local/bin"
 
 PS1="\[\e[36m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 
+export BAT_THEME=Solarized\ \(dark\)

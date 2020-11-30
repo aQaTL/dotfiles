@@ -23,14 +23,12 @@ call plug#end()
 
 filetype plugin indent on
 
-if has('gui_running')
-	let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
 
-	let base16colorspace=256  " Access colors present in 256 colorspace
-	set background=dark
-	" colorscheme base16-apathy
-	colorscheme solarized
-endif
+let base16colorspace=256  " Access colors present in 256 colorspace
+set background=dark
+" colorscheme base16-apathy
+colorscheme solarized
 
 map <C-n> :NERDTreeToggle<CR>
 

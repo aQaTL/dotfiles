@@ -30,6 +30,13 @@ set background=dark
 " colorscheme base16-apathy
 colorscheme solarized
 
+if has("unix")
+	let s:uname = system("echo -n \"$(uname)\"")
+	if s:uname == "Darwin"
+		colorscheme default
+	endif
+endif
+
 map <C-n> :NERDTreeToggle<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.

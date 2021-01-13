@@ -97,7 +97,12 @@ inoremap <C-V> <C-R>*
 "behave mswin
 
 if has("gui_running")
-	set guifont=CascadiaCode-Regular:h15
+	if has("unix") 
+		let s:uname = system("echo -n \"$(uname)\"")
+		if s:uname == "Darwin"
+			set guifont=CascadiaCode-Regular:h15
+		endif
+	endif
 	
 	color torte
 

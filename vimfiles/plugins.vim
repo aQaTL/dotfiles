@@ -30,7 +30,7 @@ set background=dark
 " colorscheme base16-apathy
 colorscheme solarized
 
-if has("unix")
+if has("unix") && !has("gui_running")
 	let s:uname = system("echo -n \"$(uname)\"")
 	if s:uname == "Darwin"
 		colorscheme default

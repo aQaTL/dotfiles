@@ -101,7 +101,13 @@ if has("gui_running")
 		let s:uname = system("echo -n \"$(uname)\"")
 		if s:uname == "Darwin"
 			set guifont=CascadiaCode-Regular:h15
+		else
+			set guifont=Cascadia\ Code\ 11
 		endif
+	endif
+	
+	if has("win32")
+		set guifont=Cascadia_Code:h11
 	endif
 	
 	color torte

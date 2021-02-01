@@ -30,6 +30,10 @@ set background=dark
 " colorscheme base16-apathy
 colorscheme solarized
 
+if has("win32") && !has("gui_running")
+	colorscheme default
+endif
+
 if has("unix") && !has("gui_running")
 	let s:uname = system("echo -n \"$(uname)\"")
 	if s:uname == "Darwin"

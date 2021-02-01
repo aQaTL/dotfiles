@@ -38,6 +38,8 @@ if has("unix") && !has("gui_running")
 	let s:uname = system("echo -n \"$(uname)\"")
 	if s:uname == "Darwin"
 		colorscheme default
+	elseif s:uname == "MINGW64_NT-10.0-19041"
+		colorscheme default
 	endif
 endif
 

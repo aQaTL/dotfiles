@@ -21,7 +21,13 @@ alias refreshenv=source\ $HOME/.bashrc
 
 alias refreshenv="source $HOME/.bashrc"
 
-PATH="$PATH:$HOME/.local/bin"
+export GOPATH=$HOME/dev/go
+
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/dev/scripts
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
+export PATH=$PATH:$HOME/jetbrains_shell_scripts
 
 PS1="\[\e[36m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 

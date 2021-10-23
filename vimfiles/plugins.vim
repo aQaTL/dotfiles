@@ -65,3 +65,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Enable .60 files automatic recognition
+autocmd BufEnter *.60 :setlocal filetype=sixtyfps
+

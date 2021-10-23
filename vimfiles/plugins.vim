@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
 Plug 'altercation/vim-colors-solarized'
+Plug 'RustemB/sixtyfps-vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

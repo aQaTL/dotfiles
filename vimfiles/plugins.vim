@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
 Plug 'altercation/vim-colors-solarized'
+Plug 'RustemB/sixtyfps-vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
@@ -65,3 +66,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Enable .60 files automatic recognition
+autocmd BufEnter *.60 :setlocal filetype=sixtyfps
+

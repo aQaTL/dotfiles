@@ -13,6 +13,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'RustemB/sixtyfps-vim'
+Plug 'pprovost/vim-ps1'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

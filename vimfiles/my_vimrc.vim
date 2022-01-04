@@ -98,9 +98,9 @@ inoremap <C-V> <C-R>*
 
 if has("gui_running")
 	if has("unix") 
-		let s:uname = system("echo -n \"$(uname)\"")
+		let s:uname = substitute(system("echo -n \"$(uname)\""), '\n', '', '')
 		if s:uname == "Darwin"
-			set guifont=CascadiaCode-Regular:h13
+			set guifont=CascadiaCode-Regular:h14
 		else
 			set guifont=Cascadia\ Code\ 11
 		endif

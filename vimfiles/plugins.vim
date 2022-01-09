@@ -37,7 +37,7 @@ if has("win32") && !has("gui_running")
 endif
 
 if has("unix") && !has("gui_running")
-	let s:uname = system("echo -n \"$(uname)\"")
+	let s:uname = substitute(system("echo -n \"$(uname)\""), '\n', '', '')
 	if s:uname == "Darwin"
 		colorscheme default
 	elseif s:uname == "Linux"

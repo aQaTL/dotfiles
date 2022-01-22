@@ -56,6 +56,11 @@ function Invoke-GitCloneDepth1 {
 	git clone --depth=1 $objects
 }
 
+function Invoke-GitLogOneline {
+	param ([string[]]$objects)
+	git log --oneline $objects
+}
+
 Set-Alias -Name f -Value "exa"
 Set-Alias -Name a -Value "bat"
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus
@@ -66,6 +71,7 @@ Set-Alias -Option AllScope -Force -Name "gpl" -Value Invoke-GitPull
 Set-Alias -Option AllScope -Force -Name "gp" -Value Invoke-GitPush
 Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
+Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 
 if ($env:TMUX -eq $null) {
 	tmux a

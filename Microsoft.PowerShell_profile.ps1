@@ -16,6 +16,10 @@ function RefreshEnv {
 
 $env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$HOME/dev/scripts:$HOME/dev/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/jetbrains_shell_scripts:/opt/homebrew/bin:/Applications/MacVim.app/Contents/bin:$HOME/jetbrains_scripts:$HOME/dev/repos/binaryen/bin:$HOME/.local/bin:$HOME/dev/scripts:$HOME/dev/go/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/jetbrains_shell_scripts:/opt/homebrew/bin:/Applications/MacVim.app/Contents/bin:$HOME/jetbrains_scripts:$HOME/dev/repos/binaryen/bin"
 
+if ($env:BAT_THEME -eq $null) {
+	$env:BAT_THEME = "Solarized (dark)"
+}
+
 function Invoke-GitStatus {
 	param ([string[]]$objects)
 	git status $objects

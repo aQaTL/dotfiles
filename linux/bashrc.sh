@@ -13,6 +13,7 @@ alias gc=git\ checkout
 alias f=exa
 alias a=bat
 alias py=python3
+alias paiton=python3
 alias where=which
 alias docs=rustup\ doc\ --std
 alias start=xdg-open

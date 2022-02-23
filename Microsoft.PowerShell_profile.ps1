@@ -4,7 +4,13 @@ function Prompt {
 	$username = $env:USER
 	Write-Host "$username" -NoNewLine -ForegroundColor 3
 	Write-Host "|" -NoNewLine
-	Write-Host "$(Get-Location)" -NoNewLine -ForegroundColor 6
+
+	[string]$currentDir = (Get-Location).Path
+	if ($currentDir.StartsWith($HOME)) {
+		$currentDir = "~" + $currentDir.Substring($HOME.Length)
+	}
+
+	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine
 
 	" "

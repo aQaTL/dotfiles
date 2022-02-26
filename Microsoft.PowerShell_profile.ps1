@@ -4,7 +4,13 @@ function Prompt {
 	$username = $env:USER
 	Write-Host "$username" -NoNewLine -ForegroundColor 3
 	Write-Host "|" -NoNewLine
-	Write-Host "$(Get-Location)" -NoNewLine -ForegroundColor 6
+
+	[string]$currentDir = (Get-Location).Path
+	if ($currentDir.StartsWith($HOME)) {
+		$currentDir = "~" + $currentDir.Substring($HOME.Length)
+	}
+
+	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine
 
 	" "
@@ -67,6 +73,7 @@ function Invoke-GitLogOneline {
 
 Set-Alias -Name f -Value "exa"
 Set-Alias -Name a -Value "bat"
+Set-Alias -Name paiton -Value "python3"
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus
 Set-Alias -Option AllScope -Force -Name "gd" -Value Invoke-GitDiff
 Set-Alias -Option AllScope -Force -Name "gcm" -Value Invoke-GitCommit

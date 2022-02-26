@@ -16,6 +16,7 @@ alias py=python3
 alias where=which
 alias docs=rustup\ doc\ --std
 alias start=xdg-open
+alias paithon=python3
 
 alias refreshenv=source\ $HOME/.bashrc
 

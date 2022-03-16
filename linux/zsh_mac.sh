@@ -8,4 +8,3 @@ export PATH=$PATH:/Users/$USER/jetbrains_scripts
 
 export PROMPT="%{$fg[cyan]%}%n%{$reset_color%}|%{$fg[yellow]%}%~%{$reset_color%}$ "
 
-eval "$(zoxide init zsh)"

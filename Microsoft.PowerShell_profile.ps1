@@ -84,9 +84,9 @@ Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 
-if ($env:TMUX -eq $null) {
-	tmux a
-	if (!$?) {
-		tmux
-	}
-}
+# if ($env:TMUX -eq $null) {
+# 	tmux a
+# 	if (!$?) {
+# 		tmux
+# 	}
+# }

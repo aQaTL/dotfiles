@@ -14,6 +14,7 @@ Plug 'neoclide/coc-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
+Plug 'morhetz/gruvbox'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
@@ -30,7 +31,8 @@ let g:vim_markdown_frontmatter = 1
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 " colorscheme base16-apathy
-colorscheme solarized
+" colorscheme solarized
+colorscheme gruvbox
 
 if has("win32") && !has("gui_running")
 	colorscheme default

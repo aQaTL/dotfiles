@@ -128,5 +128,5 @@ if has("gui_running")
 
 	" Initial gvim window size
 	set lines=60
-	set columns=120
+	set columns=100
 endif

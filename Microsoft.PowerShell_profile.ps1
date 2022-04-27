@@ -90,3 +90,7 @@ Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 # 		tmux
 # 	}
 # }
+
+$env:PATH += ":$HOME/.fnm"
+
+fnm env --use-on-cd | Out-String | Invoke-Expression

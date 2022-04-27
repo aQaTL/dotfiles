@@ -100,7 +100,7 @@ if has("gui_running")
 	if has("unix") 
 		let s:uname = substitute(system("echo -n \"$(uname)\""), '\n', '', '')
 		if s:uname == "Darwin"
-			set guifont=CascadiaCode-Regular:h14
+			set guifont=CascadiaCode-Regular:h16
 		else
 			set guifont=Cascadia\ Code\ 11
 		endif
@@ -128,5 +128,5 @@ if has("gui_running")
 
 	" Initial gvim window size
 	set lines=60
-	set columns=120
+	set columns=100
 endif

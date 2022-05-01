@@ -91,6 +91,10 @@ Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 # 	}
 # }
 
+$env:LANGUAGE = "en_US"
+
 $env:PATH += ":$HOME/.fnm"
+
+Import-Module posh-git
 
 fnm env --use-on-cd | Out-String | Invoke-Expression

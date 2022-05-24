@@ -113,7 +113,24 @@ $env:PATH += ":$HOME/.fnm"
 
 if (Test-Path fnm) {
 	fnm env --use-on-cd | Out-String | Invoke-Expression
+	$HasFnm = $true
 }
 
 $env:LANGUAGE = "en_US"
 
+function Set-LocationWithBat {
+	param (
+		$Path
+	)
+
+	Set-Location $Path
+
+	if ($HasFnm) {
+		Set-FnmOnLoad
+	}
+
+	exa
+}
+
+Remove-Item alias:\cd
+New-Alias cd Set-LocationWithBat

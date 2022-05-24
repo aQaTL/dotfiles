@@ -84,6 +84,22 @@ Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 
+function Get-CommandSource {
+	param (
+		$CommandName
+	)
+
+	$Command = Get-Command $CommandName
+
+	while ($Command.CommandType -eq [System.Management.Automation.CommandTypes]::Alias) {
+		$Command = Get-Command $Command.Definition
+	}
+
+	return $Command.Source
+}
+
+Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource
+
 # if ($env:TMUX -eq $null) {
 # 	tmux a
 # 	if (!$?) {

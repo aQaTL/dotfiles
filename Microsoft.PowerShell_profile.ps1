@@ -86,13 +86,29 @@ Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 
 function Get-CommandSource {
 	param (
-		$CommandName
+		$CommandName,
+		[switch]
+		$Last
 	)
 
 	$Command = Get-Command -ErrorAction Stop $CommandName 
 
 	while ($Command.CommandType -eq [System.Management.Automation.CommandTypes]::Alias) {
 		$Command = Get-Command $Command.Definition
+	}
+
+	if ($Command.CommandType -eq [System.Management.Automation.CommandTypes]::Application)
+	{
+		while ($true) {
+			$Item = Get-Item $Command.Path
+			if (-not $Last) {
+
+			}
+			if ($Item.LinkType -eq $null) {
+				break;
+			}
+			
+		}
 	}
 
 	return $Command.Source

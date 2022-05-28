@@ -123,7 +123,11 @@ function Set-LocationWithBat {
 		$Path
 	)
 
-	Set-Location $Path
+	if ($Path -eq $null -or $Path.Trim().Length -eq 0) {
+		return (Get-Location).Path
+	}
+
+	Set-Location -ErrorAction Stop -Path $Path
 
 	if ($HasFnm) {
 		Set-FnmOnLoad

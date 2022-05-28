@@ -89,7 +89,7 @@ function Get-CommandSource {
 		$CommandName
 	)
 
-	$Command = Get-Command $CommandName
+	$Command = Get-Command -ErrorAction Stop $CommandName 
 
 	while ($Command.CommandType -eq [System.Management.Automation.CommandTypes]::Alias) {
 		$Command = Get-Command $Command.Definition
@@ -111,7 +111,7 @@ Import-Module posh-git
 
 $env:PATH += ":$HOME/.fnm"
 
-if (Test-Path fnm) {
+if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env --use-on-cd | Out-String | Invoke-Expression
 	$HasFnm = $true
 }

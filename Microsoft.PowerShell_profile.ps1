@@ -88,7 +88,7 @@ function Get-CommandSource {
 	param (
 		$CommandName,
 		[switch]
-		$Last
+		$Last = $false
 	)
 
 	$Command = Get-Command -ErrorAction Stop $CommandName 
@@ -97,21 +97,23 @@ function Get-CommandSource {
 		$Command = Get-Command $Command.Definition
 	}
 
+	$Output = [System.Collections.ArrayList]@()
+	[void]$Output.Add($Command.Source)
+
 	if ($Command.CommandType -eq [System.Management.Automation.CommandTypes]::Application)
 	{
-		while ($true) {
-			$Item = Get-Item $Command.Path
-			if (-not $Last) {
-
-			}
-			if ($Item.LinkType -eq $null) {
-				break;
-			}
-			
+		$Item = Get-Item $Command.Source
+		while ($null -ne $Item.LinkType) {
+			[void]$Output.Add($Item.LinkTarget)
+			$Item = Get-Item $Item.LinkTarget
 		}
 	}
 
-	return $Command.Source
+	if ($Last) {
+		return $Output[-1]
+	} else {
+		return $Output
+	}
 }
 
 Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource

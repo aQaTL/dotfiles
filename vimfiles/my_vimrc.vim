@@ -102,7 +102,7 @@ if has("gui_running")
 		if s:uname == "Darwin"
 			set guifont=CascadiaCode-Regular:h16
 		else
-			set guifont=Cascadia\ Code\ 11
+			set guifont=Cascadia\ Code\ 12
 		endif
 	endif
 	

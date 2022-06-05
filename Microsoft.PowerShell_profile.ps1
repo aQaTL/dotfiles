@@ -105,7 +105,7 @@ function Get-CommandSource {
 		$Item = Get-Item $Command.Source
 		while ($null -ne $Item.LinkType) {
 			[void]$Output.Add($Item.LinkTarget)
-			$Item = Get-Item $Item.LinkTarget
+			$Item = Get-Item -ErrorAction SilentlyContinue $Item.LinkTarget 
 		}
 	}
 

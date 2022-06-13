@@ -1,3 +1,10 @@
+" Fix powershell slowness by using bash instead ;)
+if &shell =~ "pwsh"
+	if has("unix")
+		set shell=/bin/bash
+	endif
+endif
+
 " Basic
 syntax on
 set ruler

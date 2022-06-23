@@ -107,7 +107,7 @@ if has("gui_running")
 	if has("unix") 
 		let s:uname = substitute(system("echo -n \"$(uname)\""), '\n', '', '')
 		if s:uname == "Darwin"
-			set guifont=CascadiaCode-Regular:h16
+			set guifont=CascadiaCode-Regular:h14
 		else
 			set guifont=Cascadia\ Code\ 12
 		endif

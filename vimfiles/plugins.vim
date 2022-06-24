@@ -2,17 +2,17 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'godlygeek/tabular' 
+" Plug 'godlygeek/tabular' 
 Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-snippets'
-Plug 'altercation/vim-colors-solarized'
-Plug 'RustemB/sixtyfps-vim'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
 

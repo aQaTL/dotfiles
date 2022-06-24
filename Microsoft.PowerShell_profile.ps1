@@ -20,7 +20,7 @@ function RefreshEnv {
 	& $PROFILE
 }
 
-$env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dev/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/jetbrains_shell_scripts:/opt/homebrew/bin:$HOME/jetbrains_scripts:$HOME/.local/bin:$HOME/dev/go/bin:$HOME/.yarn/bin:/Applications/MacVim.app/Contents/bin"
+$env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dev/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:$HOME/jetbrains_scripts:$HOME/.local/bin:$HOME/dev/go/bin:$HOME/.yarn/bin:/Applications/MacVim.app/Contents/bin"
 
 if ($env:BAT_THEME -eq $null) {
 	$env:BAT_THEME = "Solarized (dark)"
@@ -147,9 +147,10 @@ function Set-LocationWithBat {
 
 	Set-Location -ErrorAction Stop -Path $Path
 
-	if ($HasFnm) {
-		Set-FnmOnLoad
-	}
+	# I'm not sure if this actually is needed 
+	#if ($HasFnm) {
+		#Set-FnmOnLoad
+	#}
 
 	exa
 }

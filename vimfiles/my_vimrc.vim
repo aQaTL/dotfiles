@@ -15,6 +15,9 @@ set nocompatible
 set encoding=utf-8
 set ttyfast
 
+" Always show status line, like neovim does by default
+set laststatus=2
+
 " More natural splits placement 
 set splitbelow
 set splitright

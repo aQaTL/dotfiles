@@ -15,6 +15,7 @@ Plug 'neoclide/coc-snippets'
 " Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
+Plug 'OmniSharp/omnisharp-vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
@@ -43,7 +44,7 @@ if has("unix") && !has("gui_running")
 	if s:uname == "Darwin"
 		colorscheme default
 	elseif s:uname == "Linux"
-		colorscheme default
+		colorscheme gruvbox
 	elseif s:uname == "MINGW64_NT-10.0-19041"
 		colorscheme default
 	endif

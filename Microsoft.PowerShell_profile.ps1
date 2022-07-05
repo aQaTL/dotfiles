@@ -23,7 +23,7 @@ function RefreshEnv {
 $env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dev/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:$HOME/jetbrains_scripts:$HOME/.local/bin:$HOME/dev/go/bin:$HOME/.yarn/bin:/Applications/MacVim.app/Contents/bin"
 
 if ($env:BAT_THEME -eq $null) {
-	$env:BAT_THEME = "Solarized (dark)"
+	$env:BAT_THEME = "gruvbox-dark"
 }
 
 function Invoke-GitStatus {

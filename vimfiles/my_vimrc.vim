@@ -32,8 +32,10 @@ set softtabstop=0
 set noexpandtab
 set smartindent
 
-" Turn off stupid esc lag
-set noesckeys
+if !has("nvim")
+	" Turn off stupid esc lag
+	set noesckeys
+endif
 
 " Enabled folding on indent level. That way it works on any code & html, xml
 " etc. 

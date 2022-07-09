@@ -102,6 +102,9 @@ noremap <C-C> "+y<ENTER>
 noremap <C-V> "+p<ENTER>
 inoremap <C-V> <C-R>*
 
+inoremap jk <ESC>
+inoremap kj <ESC>
+
 " HTML auto-complete
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 

@@ -15,7 +15,7 @@ Plug 'neoclide/coc-snippets'
 " Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
-"Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 "Go auto import
 let g:go_fmt_command = "goimports"

@@ -37,4 +37,10 @@ export BAT_THEME=Solarized\ \(dark\)
 
 #source "${BASH_SOURCE%/*}/ls_after_cd.sh"
 
-
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h|\w\a\]$PS1"
+    ;;  
+*)
+    ;;  
+esac

@@ -1,14 +1,20 @@
 #!/usr/local/bin/pwsh
 
 function Prompt {
-	$username = $env:USER
-	Write-Host "$username" -NoNewLine -ForegroundColor 3
-	Write-Host "|" -NoNewLine
-
 	[string]$currentDir = (Get-Location).Path
 	if ($currentDir.StartsWith($HOME)) {
 		$currentDir = "~" + $currentDir.Substring($HOME.Length)
 	}
+
+	if ($env:TERM -match "xterm|rxvt") {
+		Write-Host "`e]0;${currentDir}`a" -NoNewLine
+	}
+
+	$username = $env:USER
+	Write-Host "$username" -NoNewLine -ForegroundColor 3
+	Write-Host "|" -NoNewLine
+
+
 
 	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine

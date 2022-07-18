@@ -5,9 +5,21 @@ function Prompt {
 	if ($currentDir.StartsWith($HOME)) {
 		$currentDir = "~" + $currentDir.Substring($HOME.Length)
 	}
+	
+	if ((Test-Path Env:\SSH_CLIENT) -or (Test-Path Env:\SSH_TTY)) {
+		$hostname_ = $global:HOSTNAME
+	} else {
+		$hostname_ = ""
+	}
+	
+	if ($IsRoot) {
+		$userSign = "#"
+	} else {
+		$userSign = "$"
+	}
 
 	if ($env:TERM -match "xterm|rxvt") {
-		Write-Host "`e]0;${currentDir}`a" -NoNewLine
+		Write-Host "`e]0;${userSign} ${hostname_} ${currentDir}`a" -NoNewLine
 	}
 
 	$username = $env:USER
@@ -27,6 +39,10 @@ function RefreshEnv {
 }
 
 $env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dev/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:$HOME/jetbrains_scripts:$HOME/.local/bin:$HOME/dev/go/bin:$HOME/.yarn/bin:/Applications/MacVim.app/Contents/bin"
+
+$global:HOSTNAME="$(hostname)"
+
+$global:IsRoot=(id -u) -eq 0
 
 if ($env:BAT_THEME -eq $null) {
 	$env:BAT_THEME = "gruvbox-dark"

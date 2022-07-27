@@ -1,5 +1,7 @@
 @echo off
-cls
+rem DO NOT UNCOMMENT
+rem The cls below breaks Developer Command Prompt for Visual Studio
+rem cls
 
 doskey rm=rm -i $*
 doskey la=ls -a $*

@@ -179,3 +179,7 @@ function Set-LocationWithBat {
 
 Remove-Item alias:\cd
 New-Alias cd Set-LocationWithBat
+
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete

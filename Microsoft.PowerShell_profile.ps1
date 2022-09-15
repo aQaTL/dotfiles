@@ -49,38 +49,66 @@ if ($env:BAT_THEME -eq $null) {
 }
 
 function Invoke-GitStatus {
-	param ([string[]]$objects)
-	git status $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git status @w
 }
 
 function Invoke-GitDiff {
-	param ([string[]]$objects)
-	git diff $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git diff @w
 }
 
 function Invoke-GitCommit {
-	param ([string[]]$objects)
-	git commit -m $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git commit -m @w
 }
 
 function Invoke-GitCommitAll {
-	param ([string[]]$objects)
-	git commit -am $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git commit -am @w
 }
 
 function Invoke-GitPull {
-	param ([string[]]$objects)
-	git pull $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git pull @w
 }
 
 function Invoke-GitPush {
-	param ([string[]]$objects)
-	git push $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git push @w
 }
 
 function Invoke-GitAdd {
-	param ([string[]]$objects)
-	git add $objects
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git add @w
 }
 
 function Invoke-GitCloneDepth1 {
@@ -93,9 +121,19 @@ function Invoke-GitLogOneline {
 	git log --oneline $objects
 }
 
+function Invoke-CargoClippy {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	cargo clippy --all-targets @w
+}
+
 Set-Alias -Name f -Value "exa"
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"
+Set-Alias -Name clpy -Value Invoke-CargoClippy
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus
 Set-Alias -Option AllScope -Force -Name "gd" -Value Invoke-GitDiff
 Set-Alias -Option AllScope -Force -Name "gcm" -Value Invoke-GitCommit

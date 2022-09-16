@@ -130,6 +130,16 @@ function Invoke-CargoClippy {
 	cargo clippy --all-targets @w
 }
 
+function Job {
+	param (
+		[Parameter(Mandatory = $true)]
+		[ScriptBlock]
+		$ScriptBlock
+	)
+
+	Start-Job -ScriptBlock $ScriptBlock | Receive-Job -Wait -AutoRemoveJob
+}
+
 Set-Alias -Name f -Value "exa"
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"

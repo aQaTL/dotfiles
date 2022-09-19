@@ -18,14 +18,12 @@ function Prompt {
 		$userSign = "$"
 	}
 
-	if ($env:TERM -match "xterm|rxvt") {
+	if ($IsWindows -and (Test-Path Env:\WT_SESSION) -or $env:TERM -match "xterm|rxvt") {
 		Write-Host "`e]0;${userSign} ${hostname_} ${currentDir}`a" -NoNewLine
 	}
 
 	Write-Host "${global:username}" -NoNewLine -ForegroundColor 3
 	Write-Host "|" -NoNewLine
-
-
 
 	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine

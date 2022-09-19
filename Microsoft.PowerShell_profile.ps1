@@ -22,8 +22,7 @@ function Prompt {
 		Write-Host "`e]0;${userSign} ${hostname_} ${currentDir}`a" -NoNewLine
 	}
 
-	$username = $env:USER
-	Write-Host "$username" -NoNewLine -ForegroundColor 3
+	Write-Host "${global:username}" -NoNewLine -ForegroundColor 3
 	Write-Host "|" -NoNewLine
 
 
@@ -38,11 +37,15 @@ function RefreshEnv {
 	& $PROFILE
 }
 
-$env:PATH += "/opt/homebrew/opt/llvm/bin:$HOME/.cargo/bin:/usr/local/microsoft/powershell/7:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dev/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/opt/homebrew/bin:$HOME/jetbrains_scripts:$HOME/.local/bin:$HOME/dev/go/bin:$HOME/.yarn/bin:/Applications/MacVim.app/Contents/bin"
-
 $global:HOSTNAME="$(hostname)"
 
-$global:IsRoot=(id -u) -eq 0
+if ($IsWindows) {
+	$global:IsRoot = [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") 
+	$username = $env:USERNAME
+} else {
+	$username = $env:USER
+	$global:IsRoot=(id -u) -eq 0
+}
 
 if ($env:BAT_THEME -eq $null) {
 	$env:BAT_THEME = "gruvbox-dark"
@@ -227,7 +230,11 @@ Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource
 
 Import-Module posh-git
 
-$env:PATH += ":$HOME/.fnm"
+if ($IsWindows) {
+	$env:PATH += ";$HOME\.fnm"
+} else {
+	$env:PATH += ":$HOME/.fnm"
+}
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env --use-on-cd | Out-String | Invoke-Expression

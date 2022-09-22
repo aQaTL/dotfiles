@@ -11,6 +11,7 @@ set ruler
 set nu
 set relativenumber
 set novisualbell
+set belloff=all
 set nocompatible
 set encoding=utf-8
 set ttyfast

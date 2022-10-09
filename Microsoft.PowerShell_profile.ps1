@@ -236,3 +236,7 @@ New-Alias cd Set-LocationWithBat
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+$RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
+$DotfilesDir = Split-Path -Path $RealScriptPath -Parent
+$env:PSModulePath += ";$DotfilesDir"

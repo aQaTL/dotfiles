@@ -13,13 +13,13 @@ function Prompt {
 	}
 	
 	if ($IsRoot) {
-		$userSign = "#"
+		$userSign = "# "
 	} else {
-		$userSign = "$"
+		$userSign = ""
 	}
 
 	if ($IsWindows -and (Test-Path Env:\WT_SESSION) -or $env:TERM -match "xterm|rxvt") {
-		Write-Host "`e]0;${userSign} ${hostname_} ${currentDir}`a" -NoNewLine
+		Write-Host "`e]0;${userSign}${hostname_} ${currentDir}`a" -NoNewLine
 	}
 
 	Write-Host "${global:username}" -NoNewLine -ForegroundColor 3

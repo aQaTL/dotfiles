@@ -131,6 +131,15 @@ function Invoke-CargoClippy {
 	cargo clippy --all-targets @w
 }
 
+function Remove-ItemForce {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	Remove-Item -Force -Recurse -Confirm @w 
+}
+
 function Job {
 	param (
 		[Parameter(Mandatory = $true)]
@@ -154,6 +163,7 @@ Set-Alias -Option AllScope -Force -Name "gp" -Value Invoke-GitPush
 Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
+Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 
 function Get-CommandSource {
 	param (

@@ -208,11 +208,7 @@ Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource
 
 Import-Module posh-git
 
-if ($IsWindows) {
-	$env:PATH += ";$HOME\.fnm"
-} else {
-	$env:PATH += ":$HOME/.fnm"
-}
+$env:PATH += "$([IO.Path]::PathSeparator)$HOME$([IO.Path]::DirectorySeparatorChar).fnm"
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env --use-on-cd | Out-String | Invoke-Expression
@@ -249,4 +245,4 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
 $DotfilesDir = Split-Path -Path $RealScriptPath -Parent
-$env:PSModulePath += ";$DotfilesDir"
+$env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"

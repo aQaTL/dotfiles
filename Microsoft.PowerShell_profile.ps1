@@ -37,6 +37,9 @@ function RefreshEnv {
 
 $global:HOSTNAME="$(hostname)"
 
+$Sep = [IO.Path]::DirectorySeparatorChar
+$PathSep = [IO.Path]::PathSeparator
+
 if ($IsWindows) {
 	$global:IsRoot = [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") 
 	$username = $env:USERNAME
@@ -131,6 +134,15 @@ function Invoke-CargoClippy {
 	cargo clippy --all-targets @w
 }
 
+function Invoke-CargoFormat {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	cargo fmt @w
+}
+
 function Remove-ItemForce {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -154,6 +166,7 @@ Set-Alias -Name f -Value "exa"
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"
 Set-Alias -Name clpy -Value Invoke-CargoClippy
+Set-Alias -Name cf -Value Invoke-CargoFormat
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus
 Set-Alias -Option AllScope -Force -Name "gd" -Value Invoke-GitDiff
 Set-Alias -Option AllScope -Force -Name "gcm" -Value Invoke-GitCommit
@@ -208,7 +221,7 @@ Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource
 
 Import-Module posh-git
 
-$env:PATH += "$([IO.Path]::PathSeparator)$HOME$([IO.Path]::DirectorySeparatorChar).fnm"
+$env:PATH += "${PathSep}$HOME${Sep}.fnm"
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env --use-on-cd | Out-String | Invoke-Expression
@@ -246,3 +259,7 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
 $DotfilesDir = Split-Path -Path $RealScriptPath -Parent
 $env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"
+
+if ($IsLinux) {
+	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
+}

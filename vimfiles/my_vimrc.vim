@@ -149,6 +149,6 @@ if has("gui_running")
 	"set spell spelllang=en_us
 
 	" Initial gvim window size
-	set lines=60
-	set columns=100
+	set lines=50
+	set columns=105
 endif

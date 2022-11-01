@@ -16,6 +16,12 @@ set nocompatible
 set encoding=utf-8
 set ttyfast
 
+" Veritical line at 100 characters
+set colorcolumn=100
+
+" Set color of that vertical line
+hi ColorColumn ctermbg=lightgrey
+
 " Always show status line, like neovim does by default
 set laststatus=2
 

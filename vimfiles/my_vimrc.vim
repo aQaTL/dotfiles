@@ -25,6 +25,9 @@ hi ColorColumn ctermbg=lightgrey
 " Always show status line, like neovim does by default
 set laststatus=2
 
+" Neovim cursor
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+
 " More natural splits placement 
 set splitbelow
 set splitright
@@ -141,9 +144,7 @@ if has("gui_running")
 	set guioptions-=R
 	set guioptions-=L
 
-	set guicursor=i:blinkwait0-blinkon0-blinkoff0
-	set guicursor=n:blinkwait0-blinkon0-blinkoff0
-	set guicursor=v:blinkwait0-blinkon0-blinkoff0
+	set guicursor=n-v-c-sm:block-blinkwait0-blinkon0-blinkoff0,i-ci-ve:ver25-blinkwait0-blinkon0-blinkoff0,r-cr-o:hor20-blinkwait0-blinkon0-blinkoff0
 
 	" Spell checking
 	"set spell spelllang=en_us

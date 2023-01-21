@@ -16,6 +16,7 @@ Plug 'neoclide/coc-snippets'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'airblade/vim-gitgutter'
 
 "Go auto import
 let g:go_fmt_command = "goimports"
@@ -30,7 +31,6 @@ filetype plugin indent on
 let g:vim_markdown_frontmatter = 1
 
 set updatetime=50
-
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

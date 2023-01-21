@@ -158,7 +158,11 @@ function Invoke-Neovide {
 		[string[]]
 		$w
 	)
-	neovide.exe --geometry 87x46 -- @w
+    $neovideArgs = @()
+    if (Test-Path Env:\WSL_DISTRO_NAME) {
+        $neovideArgs += "--wsl"
+    }
+	neovide.exe --geometry 87x46 @neovideArgs -- @w
 }
 
 function Job {

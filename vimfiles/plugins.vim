@@ -29,6 +29,27 @@ filetype plugin indent on
 
 let g:vim_markdown_frontmatter = 1
 
+set updatetime=50
+
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap gd <Plug>(coc-definition)
+nmap <F7> <Plug>(coc-references)
+inoremap <silent><expr> <c-@> coc#refresh()
+nnoremap <silent> <F1> :call ShowDocumentation()<CR>
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+function! ShowDocumentation()
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
+endfunction
+
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 " colorscheme base16-apathy

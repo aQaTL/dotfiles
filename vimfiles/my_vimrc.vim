@@ -83,6 +83,8 @@ set linebreak
 " Unix line endings
 set fileformat=unix
 
+
+
 " Tweaks for builtin file browser
 let g:netrw_banner=0
 let g:netrw_browse_split=4
@@ -114,6 +116,10 @@ inoremap <C-V> <C-R>*
 
 inoremap jk <ESC>
 inoremap kj <ESC>
+
+vmap J :m '>+1<CR>gv=gv
+vmap K :m -2<CR>gv=gv
+
 
 " HTML auto-complete
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags

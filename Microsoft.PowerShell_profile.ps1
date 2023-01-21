@@ -152,6 +152,15 @@ function Remove-ItemForce {
 	Remove-Item -Force -Recurse -Confirm @w 
 }
 
+function Invoke-Neovide {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	neovide.exe --geometry 87x46 -- @w
+}
+
 function Job {
 	param (
 		[Parameter(Mandatory = $true)]
@@ -177,6 +186,7 @@ Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
+Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
 
 function Get-CommandSource {
 	param (

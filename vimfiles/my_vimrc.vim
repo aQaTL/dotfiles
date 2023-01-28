@@ -120,6 +120,7 @@ inoremap kj <ESC>
 vmap J :m '>+1<CR>gv=gv
 vmap K :m -2<CR>gv=gv
 
+nmap <C-l> <C-W><C-W>
 
 " HTML auto-complete
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags

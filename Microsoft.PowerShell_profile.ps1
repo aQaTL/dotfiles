@@ -277,3 +277,9 @@ $env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"
 if ($IsLinux) {
 	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
 }
+
+# Additonal scripts, not commited
+$CustomPSSettingsPath = Join-Path $DotfilesDir "Custom.ps1"
+if (Test-Path $CustomPSSettingsPath) {
+	. $CustomPSSettingsPath
+}

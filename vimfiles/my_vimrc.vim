@@ -159,4 +159,7 @@ if has("gui_running")
 	" Initial gvim window size
 	set lines=50
 	set columns=105
+
+	" Highlights current line
+	set cursorline
 endif

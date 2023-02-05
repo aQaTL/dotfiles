@@ -162,7 +162,7 @@ function Invoke-Neovide {
     if (Test-Path Env:\WSL_DISTRO_NAME) {
         $neovideArgs += "--wsl"
     }
-	neovide.exe --geometry 87x46 @neovideArgs -- @w
+	neovide.exe --geometry 87x46 --multigrid @neovideArgs -- @w
 }
 
 function Job {
@@ -190,6 +190,7 @@ Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
+Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
 
 function Get-CommandSource {

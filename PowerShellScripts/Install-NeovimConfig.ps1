@@ -3,10 +3,6 @@ function Install-NeovimConfig {
 	param (
 	)
 
-	# $DotfilesDir is set by Microsoft.PowerShell_profile.ps1 inside dotfiles repo
-	if (-not $DotfilesDir) {
-		#$Dotfiles 
-	}
 	$MyNeovimConfigDir = Join-Path (Get-Item $PSScriptRoot).Parent "neovim"
 	Write-Verbose "Using neovim config dir: $MyNeovimConfigDir"
 

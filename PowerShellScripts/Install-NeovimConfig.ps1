@@ -1,4 +1,3 @@
-
 function Install-NeovimConfig {
 	[CmdletBinding()]
 	param (
@@ -48,8 +47,7 @@ function Install-NeovimConfig {
 	if ($IsWindows) {
 		$MyNeovimConfigDir = $MyNeovimConfigDir.Replace("\", "\\")
 		$MyNeovimConfigAfterDir = $MyNeovimConfigAfterDir.Replace("\", "\\")
-	}
-
+	} 
 	$Config = @"
 vim.opt.runtimepath:append(',$MyNeovimConfigDir')
 vim.opt.runtimepath:append(',$MyNeovimConfigAfterDir')
@@ -61,6 +59,13 @@ require(`"dotfiles`")
 	Write-Host "$Config"
 	Write-Host ("=" * 80)
 	Write-Verbose "Writing config file to $NeovimInitFile"
+
+	$PackerConfigFile = Join-Path $MyNeovimConfigDir "lua" "dotfiles" "packer.lua"
+
+	Write-Verbose "Now, to download the plugins: "
+	Write-Verbose "1. Open $PackerConfigFile in neovim"
+	Write-Verbose "2. Run :so"
+	Write-Verbose "3. Run :PackerSync"
 
 	$Config | Out-File -FilePath $NeovimInitFile -Encoding utf8
 	

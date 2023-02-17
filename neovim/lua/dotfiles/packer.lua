@@ -38,5 +38,7 @@ return require('packer').startup(function(use)
     -- Required for telescope
     use { "nvim-lua/plenary.nvim" }
     use { "nvim-telescope/telescope.nvim" }
+
+	use { "nvim-tree/nvim-tree.lua" }
 end)
 

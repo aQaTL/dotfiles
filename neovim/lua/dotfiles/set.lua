@@ -30,6 +30,10 @@ vim.opt.splitright = true
 -- Highlights current line
 vim.opt.cursorline = true
 
+-- nvim-tree *strongly* recommends to disable builtin netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.guifont = "Cascadia Mono:h12"
 
 vim.opt.updatetime = 50

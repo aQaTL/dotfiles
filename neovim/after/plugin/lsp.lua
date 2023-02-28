@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local telescope = require("telescope.builtin")
 
 lsp.preset("recommended")
 
@@ -52,10 +53,16 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader><F1>", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "<F7>", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader><F7>", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
     vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("n", "<F9>", vim.lsp.buf.document_symbol, opts)
+    vim.keymap.set("n", "<leader><F9>", vim.lsp.buf.document_symbol, opts)
+
+	-- Telescope pickers
+	vim.keymap.set("n", "<F9>", telescope.lsp_document_symbols, opts)
+	vim.keymap.set("n", "<F7>", telescope.lsp_references, opts)
+	vim.keymap.set("n", "<leader><leader>", telescope.lsp_dynamic_workspace_symbols, opts)
+
 
     -- configure document_highlight colors
     vim.cmd([[ highlight LspReferenceText guibg=#4c4744 ]]) -- slightly brighter than CursorLine

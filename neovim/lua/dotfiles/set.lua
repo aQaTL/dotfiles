@@ -35,5 +35,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.guifont = "Cascadia Mono:h12"
+vim.opt.linespace = 1
 
 vim.opt.updatetime = 50

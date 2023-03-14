@@ -31,6 +31,15 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- DAP Support (debugging)
+	use { "mfussenegger/nvim-dap" }
+	use {
+		"rcarriga/nvim-dap-ui",
+		requires = {
+			"mfussenegger/nvim-dap"
+		},
+	}
+
 	use { "ellisonleao/gruvbox.nvim" }
 
 	use { "airblade/vim-gitgutter" }

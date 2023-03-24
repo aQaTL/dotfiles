@@ -13,3 +13,8 @@ vim.keymap.set("n", "<C-l>", "<C-W><C-W>")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("v", "<C-c>", "\"+y<CR>")
 vim.keymap.set("n", "<C-v>", "\"+p<CR>")
+
+vim.keymap.set("n", "<leader>n", function ()
+	vim.cmd([[nohl]])
+end, {})
+

@@ -17,7 +17,8 @@ Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
-
+Plug 'AndrewRadev/typewriter.vim', {'branch': 'main'}
+ 
 "Go auto import
 let g:go_fmt_command = "goimports"
 

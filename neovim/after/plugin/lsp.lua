@@ -62,6 +62,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<F9>", telescope.lsp_document_symbols, opts)
 	vim.keymap.set("n", "<F7>", telescope.lsp_references, opts)
 	vim.keymap.set("n", "<leader><leader>", telescope.lsp_dynamic_workspace_symbols, opts)
+	vim.keymap.set("n", "<leader>w", telescope.lsp_workspace_symbols, opts)
 
 
     -- configure document_highlight colors

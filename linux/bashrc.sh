@@ -12,6 +12,7 @@ alias gc=git\ checkout
 
 alias f=exa
 alias a=bat
+alias v=nvim
 alias py=python3
 alias paiton=python3
 alias where=which

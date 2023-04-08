@@ -34,7 +34,7 @@ export PATH=$PATH:$HOME/jetbrains_shell_scripts
 
 PS1="\[\e[36m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 
-export BAT_THEME=Solarized\ \(dark\)
+export BAT_THEME=gruvbox-dark
 
 #source "${BASH_SOURCE%/*}/ls_after_cd.sh"
 

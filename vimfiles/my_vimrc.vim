@@ -122,6 +122,8 @@ vmap K :m -2<CR>gv=gv
 
 nmap <C-l> <C-W><C-W>
 
+nnoremap <space>n :nohl<ENTER>  
+
 " HTML auto-complete
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 

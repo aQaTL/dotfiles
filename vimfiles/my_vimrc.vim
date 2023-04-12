@@ -117,6 +117,15 @@ inoremap <C-V> <C-R>*
 inoremap jk <ESC>
 inoremap kj <ESC>
 
+inoremap JK <ESC>
+inoremap KJ <ESC>
+
+inoremap Jk <ESC>
+inoremap Kj <ESC>
+
+inoremap jK <ESC>
+inoremap kJ <ESC>
+
 vmap J :m '>+1<CR>gv=gv
 vmap K :m -2<CR>gv=gv
 

@@ -25,6 +25,9 @@ let g:go_fmt_command = "goimports"
 "Fix rust indentation
 let g:rust_recommended_style = 0
 
+" Automatically close nerdtree after opening a file
+let NERDTreeQuitOnOpen = 1
+
 call plug#end()
 
 filetype plugin indent on

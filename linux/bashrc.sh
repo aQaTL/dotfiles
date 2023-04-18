@@ -19,6 +19,8 @@ alias where=which
 alias docs=rustup\ doc\ --std
 alias start=xdg-open
 alias paithon=python3
+alias cf=cargo\ fmt
+alias clpy=cargo\ clippy
 
 alias refreshenv=source\ $HOME/.bashrc
 

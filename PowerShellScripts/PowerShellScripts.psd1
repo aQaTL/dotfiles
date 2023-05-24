@@ -69,7 +69,13 @@ PowerShellVersion = '7.2'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @("Use-Env", "Stop-All", "Import-VsDevEnv", "Install-NeovimConfig")
+FunctionsToExport = @(
+	"Use-Env", 
+	"Stop-All", 
+	"Import-VsDevEnv", 
+	"Install-NeovimConfig", 
+	"Get-DateFromUnix"
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

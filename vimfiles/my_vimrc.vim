@@ -83,7 +83,8 @@ set linebreak
 " Unix line endings
 set fileformat=unix
 
-
+" Disable syntax highlighting for markdown files
+autocmd FileType markdown setlocal syntax=OFF 
 
 " Tweaks for builtin file browser
 let g:netrw_banner=0

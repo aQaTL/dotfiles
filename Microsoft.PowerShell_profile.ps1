@@ -158,11 +158,13 @@ function Invoke-Neovide {
 		[string[]]
 		$w
 	)
-    $neovideArgs = @()
-    if (Test-Path Env:\WSL_DISTRO_NAME) {
-        $neovideArgs += "--wsl"
-    }
-	neovide.exe --geometry 87x46 --multigrid @neovideArgs -- @w
+	$arguments = @("--geometry", "98x42", "--multigrid")
+	if (Test-Path Env:\WSL_DISTRO_NAME) {
+		$arguments += "--wsl"
+	}
+	$arguments += "--"
+	$arguments += $w
+	Start-Process -FilePath neovide.exe -ArgumentList $arguments
 }
 
 function Job {

@@ -16,6 +16,9 @@ set nocompatible
 set encoding=utf-8
 set ttyfast
 
+" Set leader key to space
+let mapleader = "\<Space>"
+
 " Veritical line at 100 characters
 set colorcolumn=100
 

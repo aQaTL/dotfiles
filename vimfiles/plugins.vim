@@ -42,9 +42,10 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 nmap gd <Plug>(coc-definition)
 nmap <F7> <Plug>(coc-references)
 inoremap <silent><expr> <c-@> coc#refresh()
-nnoremap <silent> <F1> :call ShowDocumentation()<CR>
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" Show show documentation in a preview window
+nnoremap <silent> <F1> :call ShowDocumentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
 	if CocAction('hasProvider', 'hover')
@@ -53,6 +54,35 @@ function! ShowDocumentation()
 		call feedkeys('K', 'in')
 	endif
 endfunction
+
+nmap <leader><F1> <Plug>(coc-codeaction-cursor)
+
+nmap <F3> <Plug>(coc-diagnostic-next)
+nmap <leader><F3> <Plug>(coc-diagnostic-prev)
+
+" Symbol renaming
+nmap <F2> <Plug>(coc-rename)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Show current file in tree
+nmap <F8> :NERDTreeFind<CR>
+
+" Remap <C-f> and <C-b> to scroll float windows/popups
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+" Format current buffer
+nmap <F4> :call CocActionAsync('format')<CR>
+
+" Current document sybmols
+nmap <silent><nowait> <F9> :<C-u>CocList outline<CR>
+" Workspace sybmols
+nmap <silent><nowait> <leader><leader> :<C-u>CocList -I symbols<CR>
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark

@@ -77,7 +77,7 @@ set smartcase
 
 " Wildchar visual completion
 set wildmenu
-set wildmode=full
+set wildmode=longest:list,full
 
 " Line wrapping and breaking for better reading
 set wrap

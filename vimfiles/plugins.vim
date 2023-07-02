@@ -84,6 +84,11 @@ nmap <silent><nowait> <F9> :<C-u>CocList outline<CR>
 " Workspace sybmols
 nmap <silent><nowait> <leader><leader> :<C-u>CocList -I symbols<CR>
 
+" Next item in Coc list
+nmap <F5> :CocPrev<CR>
+nmap <F6> :CocNext<CR>
+nmap <leader><F5> :CocListResume<CR>
+
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 " colorscheme base16-apathy

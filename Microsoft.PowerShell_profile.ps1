@@ -271,6 +271,7 @@ New-Alias cd Set-LocationWithBat
 
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin | Out-Null
 Set-PSReadLineOption -PredictionViewStyle ListView | Out-Null
+Set-PSReadLineOption -EditMode Windows | Out-Null
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget

@@ -280,6 +280,13 @@ $env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"
 
 if ($IsLinux) {
 	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
+
+    $ExecutionContext.InvokeCommand.CommandNotFoundAction += {
+        param (
+            [string]$commandName
+        )
+		/usr/lib/command-not-found --no-failure-msg $commandName
+	}
 }
 
 # Additonal scripts, not commited

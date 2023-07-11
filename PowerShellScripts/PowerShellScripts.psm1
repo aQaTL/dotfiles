@@ -3,3 +3,4 @@
 . $PSScriptRoot\Import-VsDevEnv.ps1
 . $PSScriptRoot\Install-NeovimConfig.ps1
 . $PSScriptRoot\Get-DateFromUnix.ps1
+. $PSScriptRoot\Send-File.ps1

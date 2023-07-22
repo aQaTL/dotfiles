@@ -4,3 +4,4 @@
 . $PSScriptRoot\Install-NeovimConfig.ps1
 . $PSScriptRoot\Get-DateFromUnix.ps1
 . $PSScriptRoot\Send-File.ps1
+. $PSScriptRoot\Restart-AutoHotKey.ps1

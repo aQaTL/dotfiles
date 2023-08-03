@@ -76,7 +76,9 @@ FunctionsToExport = @(
 	"Install-NeovimConfig", 
 	"Get-DateFromUnix",
 	"Send-File",
-	"Restart-AutoHotKey"
+	"Restart-AutoHotKey",
+	"ConvertFrom-UnixTimeStamp",
+	"ConvertTo-UnixTimeStamp"
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.

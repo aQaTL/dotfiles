@@ -155,6 +155,7 @@ if has("gui_running")
 	
 	if has("win32")
 		set guifont=Cascadia_Code:h11
+		set linespace=0
 	endif
 	
 	color torte

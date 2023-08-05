@@ -70,6 +70,22 @@ lsp.on_attach(function(client, bufnr)
 	vim.cmd([[ highlight LspReferenceText guibg=#4c4744 ]]) -- slightly brighter than CursorLine
 	vim.cmd([[ highlight link LspReferenceRead CursorLine ]])
 	vim.cmd([[ highlight link LspReferenceWrite CursorLine ]])
+
 end)
 
+lsp.configure("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			workspace = {
+				symbol = {
+					search = {
+						kind = "all_symbols"
+					}
+				}
+			}
+		}
+	}
+})
+
 lsp.setup()
+

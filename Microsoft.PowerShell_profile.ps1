@@ -269,6 +269,12 @@ function Set-LocationWithBat {
 Remove-Item alias:\cd
 New-Alias cd Set-LocationWithBat
 
+function Set-LocationParent {
+	Set-LocationWithBat -Path ".."
+}
+
+New-Alias ".." Set-LocationParent
+
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin | Out-Null
 Set-PSReadLineOption -PredictionViewStyle ListView | Out-Null
 Set-PSReadLineOption -EditMode Windows | Out-Null

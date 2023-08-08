@@ -15,6 +15,8 @@ Plug 'neoclide/coc-snippets'
 " Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/typewriter.vim', {'branch': 'main'}
 Plug 'Tetralux/odin.vim'
@@ -88,6 +90,8 @@ nmap <silent><nowait> <leader><leader> :<C-u>CocList -I symbols<CR>
 nmap <F5> :CocPrev<CR>
 nmap <F6> :CocNext<CR>
 nmap <leader><F5> :CocListResume<CR>
+
+nmap <leader>f :FZF<CR>
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark

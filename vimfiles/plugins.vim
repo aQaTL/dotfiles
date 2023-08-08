@@ -15,7 +15,6 @@ Plug 'neoclide/coc-snippets'
 " Plug 'RustemB/sixtyfps-vim'
 Plug 'pprovost/vim-ps1'
 Plug 'morhetz/gruvbox'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/typewriter.vim', {'branch': 'main'}
 Plug 'Tetralux/odin.vim'

@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/typewriter.vim', {'branch': 'main'}
+Plug 'Tetralux/odin.vim'
  
 "Go auto import
 let g:go_fmt_command = "goimports"

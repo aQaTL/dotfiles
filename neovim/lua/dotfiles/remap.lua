@@ -29,11 +29,3 @@ vim.keymap.set("n", "<leader>n", function ()
 	vim.cmd([[nohl]])
 end, {})
 
-vim.keymap.set("c", "<cr>", function ()
-	if vim.fn.pumvisible() == 1 then
-		return "c-y"
-	end
-	return "<cr>"
-end,
-{ expr = true }
-)

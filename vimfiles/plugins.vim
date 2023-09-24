@@ -92,6 +92,10 @@ nmap <F6> :CocNext<CR>
 nmap <leader><F5> :CocListResume<CR>
 
 nmap <leader>f :FZF<CR>
+nmap <leader>s :Rg<CR>
+nmap <leader>g :call fzf#run(
+	\{'source': 'git ls-files', 'sink': 'e', 'window': {'width': 0.8, 'height': 0.8}})
+	\<CR>
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark

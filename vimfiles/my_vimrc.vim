@@ -170,6 +170,7 @@ if has("gui_running")
 	set guioptions-=l
 	set guioptions-=R
 	set guioptions-=L
+	set guioptions+=k
 
 	set guicursor=n-v-c-sm:block-blinkwait0-blinkon0-blinkoff0,i-ci-ve:ver25-blinkwait0-blinkon0-blinkoff0,r-cr-o:hor20-blinkwait0-blinkon0-blinkoff0
 

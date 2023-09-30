@@ -158,7 +158,7 @@ if has("gui_running")
 	endif
 	
 	if has("win32")
-		set guifont=Cascadia_Code:h11
+		set guifont=Cascadia_Code:h12
 		set linespace=0
 	endif
 	

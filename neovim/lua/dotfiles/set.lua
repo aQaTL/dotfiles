@@ -34,7 +34,12 @@ vim.opt.cursorline = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.opt.guifont = "Cascadia Mono:h13"
+if vim.loop.os_uname().sysname == "Darwin" then
+	vim.opt.guifont = "Cascadia Mono:h15"
+else
+	vim.opt.guifont = "Cascadia Mono:h13"
+end
+
 vim.opt.linespace = 0
 
 vim.opt.updatetime = 50

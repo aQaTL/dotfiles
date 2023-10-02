@@ -164,7 +164,8 @@ function Invoke-Neovide {
 	}
 	$arguments += "--"
 	$arguments += $w
-	Start-Process -FilePath neovide.exe -ArgumentList $arguments
+	$neovidePath = $IsWindows ? "neovide.exe" : "neovide"
+	Start-Process -FilePath $neovidePath -ArgumentList $arguments
 }
 
 function Job {

@@ -17,3 +17,28 @@ alias gl = git log --online
 alias rmrf = rm -rf
 alias v = nvim
 alias vv = neovide
+
+def prompt [] {
+	let user = $env.USER
+
+    mut home = ""
+    try {
+        if $nu.os-info.name == "windows" {
+            $home = $env.USERPROFILE
+        } else {
+            $home = $env.HOME
+        }
+    }
+
+    let pwd = ([
+        ($env.PWD | str substring 0..($home | str length) | str replace --string $home "~"),
+        ($env.PWD | str substring ($home | str length)..)
+    ] | str join)
+
+	$"(ansi cyan)($user)|(ansi yellow)($pwd)(ansi reset)"
+}
+
+$env.PROMPT_COMMAND = {|| prompt }
+$env.PROMPT_INDICATOR = {|| "$ " }
+
+$env.config.cursor_shape.emacs = "block"

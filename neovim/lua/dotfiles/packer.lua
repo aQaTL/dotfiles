@@ -59,5 +59,9 @@ return require("packer").startup(function(use)
 
 	-- File explorer
 	use { "nvim-tree/nvim-tree.lua" }
+
+	-- Nushell support
+	use { "LhKipp/nvim-nu" }
+
 end)
 

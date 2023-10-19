@@ -19,14 +19,15 @@ alias v = nvim
 alias vv = neovide
 
 def prompt [] {
-	let user = $env.USER
-
+	mut user = ""
     mut home = ""
     try {
         if $nu.os-info.name == "windows" {
             $home = $env.USERPROFILE
+			$user = $env.USERNAME
         } else {
             $home = $env.HOME
+			$user = $env.USER
         }
     }
 

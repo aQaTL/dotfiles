@@ -1,6 +1,7 @@
 alias v = nvim
 
-alias f = exa
+alias f = ls
+alias ff = exa
 alias a = bat
 alias paiton = python3
 alias clpy = cargo clippy --all-targets
@@ -32,7 +33,7 @@ def prompt [] {
     }
 
     let pwd = ([
-        ($env.PWD | str substring 0..($home | str length) | str replace --string $home "~"),
+        ($env.PWD | str substring 0..($home | str length) | str replace $home "~"),
         ($env.PWD | str substring ($home | str length)..)
     ] | str join)
 

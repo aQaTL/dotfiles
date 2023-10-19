@@ -159,12 +159,13 @@ function Invoke-Neovide {
 		$w
 	)
 	$arguments = @("--geometry", "98x42", "--multigrid")
+	$neovidePath = $IsWindows ? "neovide.exe" : "neovide"
 	if (Test-Path Env:\WSL_DISTRO_NAME) {
 		$arguments += "--wsl"
+		$neovidePath = "neovide.exe"
 	}
 	$arguments += "--"
 	$arguments += $w
-	$neovidePath = $IsWindows ? "neovide.exe" : "neovide"
 	Start-Process -FilePath $neovidePath -ArgumentList $arguments
 }
 

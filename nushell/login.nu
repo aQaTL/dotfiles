@@ -14,7 +14,7 @@ alias gpl = git pull
 alias gp = git push
 alias ga = git add
 alias gcd1 = git clone --depth=1
-alias gl = git log --online
+alias gl = git log --oneline
 alias rmrf = rm -rf
 alias v = nvim
 alias vv = neovide

@@ -37,7 +37,9 @@ def prompt [] {
         ($env.PWD | str substring ($home | str length)..)
     ] | str join)
 
-	$"(ansi cyan)($user)|(ansi yellow)($pwd)(ansi reset)"
+	let title = $"\u{1B}]0;($pwd)\u{07}"
+
+	$"(ansi cyan)($user)|(ansi yellow)($pwd)(ansi reset)($title)"
 }
 
 $env.PROMPT_COMMAND = {|| prompt }

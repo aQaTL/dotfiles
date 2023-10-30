@@ -29,6 +29,7 @@ let g:rust_recommended_style = 0
 
 " Automatically close nerdtree after opening a file
 let NERDTreeQuitOnOpen = 1
+let NERDTreeWinPos = "right"
 
 call plug#end()
 

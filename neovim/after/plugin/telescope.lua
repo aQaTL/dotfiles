@@ -9,7 +9,7 @@ require("telescope").load_extension "file_browser"
 
 vim.keymap.set(
 	"n",
-	"<leader>n",
+	"<leader>w",
 	function()
 		require("telescope").extensions.file_browser.file_browser()
 	end,

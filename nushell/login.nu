@@ -1,7 +1,7 @@
 alias v = nvim
 
-alias f = ls
-alias ff = exa
+alias f = exa
+alias ff = ls
 alias a = bat
 alias paiton = python3
 alias clpy = cargo clippy --all-targets

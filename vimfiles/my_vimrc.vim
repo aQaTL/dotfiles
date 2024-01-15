@@ -5,6 +5,12 @@ if &shell =~ "pwsh"
 	endif
 endif
 
+if &shell =~ "nu$"
+	if has("unix")
+		set shell=/bin/bash
+	endif
+endif
+
 " Basic
 syntax on
 set ruler

@@ -140,6 +140,8 @@ function Invoke-CargoFormat {
 		[string[]]
 		$w
 	)
+	$fmtArgs = $w | Join-String -Separator " "
+	Write-Host "`e]0;cargo fmt ${fmtArgs}`a" -NoNewline
 	cargo fmt @w
 }
 

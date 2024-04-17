@@ -171,6 +171,15 @@ function Invoke-Neovide {
 	Start-Process -FilePath $neovidePath -ArgumentList $arguments
 }
 
+function Invoke-FdHiddenNoIgnore {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	fd --hidden --no-ignore @w
+}
+
 function Job {
 	param (
 		[Parameter(Mandatory = $true)]
@@ -198,6 +207,7 @@ Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
+Set-Alias -Option AllScope -Force -Name "fdhnoi" -Value Invoke-FdHiddenNoIgnore
 
 function Get-CommandSource {
 	param (

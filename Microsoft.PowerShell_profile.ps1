@@ -283,6 +283,8 @@ Set-PSReadLineOption -PredictionSource HistoryAndPlugin | Out-Null
 Set-PSReadLineOption -PredictionViewStyle ListView | Out-Null
 Set-PSReadLineOption -EditMode Windows | Out-Null
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineKeyHandler -Chord Ctrl+n -Function NextSuggestion
+Set-PSReadLineKeyHandler -Chord Ctrl+p -Function PreviousSuggestion
 
 $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
 $DotfilesDir = Split-Path -Path $RealScriptPath -Parent

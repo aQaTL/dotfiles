@@ -35,7 +35,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 if vim.loop.os_uname().sysname == "Darwin" then
-	vim.opt.guifont = "Cascadia Mono:h15"
+	vim.opt.guifont = "Cascadia Mono:h18"
 else
 	vim.opt.guifont = "Cascadia Mono:h13"
 end

@@ -177,7 +177,16 @@ function Invoke-FdHiddenNoIgnore {
 		[string[]]
 		$w
 	)
-	fd --hidden --no-ignore @w
+	fd --hidden --no-ignore --ignore-case @w
+}
+
+function Invoke-RgHiddenNoIgnore {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	fd --hidden --no-ignore --ignore-case @w
 }
 
 function Job {
@@ -208,6 +217,9 @@ Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
 Set-Alias -Option AllScope -Force -Name "fdhnoi" -Value Invoke-FdHiddenNoIgnore
+Set-Alias -Option AllScope -Force -Name "fdnohi" -Value Invoke-FdHiddenNoIgnore
+Set-Alias -Option AllScope -Force -Name "rghnoi" -Value Invoke-RgHiddenNoIgnore
+Set-Alias -Option AllScope -Force -Name "rgnohi" -Value Invoke-RgHiddenNoIgnore
 
 function Get-CommandSource {
 	param (

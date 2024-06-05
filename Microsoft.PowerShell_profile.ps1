@@ -204,6 +204,7 @@ Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"
 Set-Alias -Name clpy -Value Invoke-CargoClippy
 Set-Alias -Name cf -Value Invoke-CargoFormat
+Set-Alias -Option AllScope -Force -Name "g" -Value "git"
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus
 Set-Alias -Option AllScope -Force -Name "gd" -Value Invoke-GitDiff
 Set-Alias -Option AllScope -Force -Name "gcm" -Value Invoke-GitCommit

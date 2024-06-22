@@ -272,6 +272,13 @@ if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	$HasFnm = $true
 }
 
+$BunPath = Join-Path $HOME .bun
+if (Test-Path $:BunPath) {
+	$env:BUN_INSTALL = $BunPath
+	$env:PATH += "${PathSep}${BunPath}${Sep}bin"
+}
+Remove-Variable -Name BunPath 
+
 $env:LANGUAGE = "en_US"
 
 function Set-LocationWithBat {

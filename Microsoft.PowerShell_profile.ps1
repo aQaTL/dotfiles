@@ -120,9 +120,9 @@ function Invoke-GitCloneDepth1 {
 	git clone --depth=1 $objects
 }
 
-function Invoke-GitLogOneline {
+function Invoke-GitLog {
 	param ([string[]]$objects)
-	git log --oneline $objects
+	git log $objects
 }
 
 function Invoke-CargoClippy {
@@ -213,7 +213,7 @@ Set-Alias -Option AllScope -Force -Name "gpl" -Value Invoke-GitPull
 Set-Alias -Option AllScope -Force -Name "gp" -Value Invoke-GitPush
 Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
-Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLogOneline
+Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLog
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide

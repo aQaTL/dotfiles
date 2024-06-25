@@ -74,6 +74,7 @@ FunctionsToExport = @(
 	"Stop-All", 
 	"Import-VsDevEnv", 
 	"Install-NeovimConfig", 
+	"Install-BatConfig", 
 	"Get-DateFromUnix",
 	"Send-File",
 	"Restart-AutoHotKey",

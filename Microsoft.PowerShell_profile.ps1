@@ -307,7 +307,7 @@ function Set-LocationParent {
 	Set-LocationWithBat -Path ".."
 }
 
-New-Alias ".." Set-LocationParent
+New-Alias ".." Set-LocationParent -Force
 
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin | Out-Null
 Set-PSReadLineOption -PredictionViewStyle ListView | Out-Null

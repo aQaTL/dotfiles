@@ -256,6 +256,10 @@ function Get-CommandSource {
 
 Set-Alias -Option AllScope -Force -Name "gcmd" -Value Get-CommandSource
 
+if ($IsWindows -and (Get-Command -ErrorAction SilentlyContinue which) -eq $null) {
+	Set-Alias -Option AllScope -Name "which" -Value Get-Command
+}
+
 # if ($env:TMUX -eq $null) {
 # 	tmux a
 # 	if (!$?) {

@@ -186,7 +186,7 @@ function Invoke-RgHiddenNoIgnore {
 		[string[]]
 		$w
 	)
-	fd --hidden --no-ignore --ignore-case @w
+	rg --hidden --no-ignore --ignore-case @w
 }
 
 function Job {

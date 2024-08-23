@@ -69,6 +69,10 @@ nmap <F2> <Plug>(coc-rename)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" NERDTree keymaps
+map <C-n> :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
+
 " Show current file in tree
 nmap <F8> :NERDTreeFind<CR>
 
@@ -120,8 +124,6 @@ if has("unix") && !has("gui_running")
 		colorscheme default
 	endif
 endif
-
-map <C-n> :NERDTreeToggle<CR>
 
 " Enable .60 files automatic recognition
 autocmd BufEnter *.60 :setlocal filetype=sixtyfps

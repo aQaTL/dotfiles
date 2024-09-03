@@ -52,6 +52,15 @@ if ($env:BAT_THEME -eq $null) {
 	$env:BAT_THEME = "gruvbox-dark"
 }
 
+function Invoke-ExaLong {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	exa --long @w
+}
+
 function Invoke-GitStatus {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -189,17 +198,8 @@ function Invoke-RgHiddenNoIgnore {
 	fd --hidden --no-ignore --ignore-case @w
 }
 
-function Job {
-	param (
-		[Parameter(Mandatory = $true)]
-		[ScriptBlock]
-		$ScriptBlock
-	)
-
-	Start-Job -ScriptBlock $ScriptBlock | Receive-Job -Wait -AutoRemoveJob
-}
-
 Set-Alias -Name f -Value "exa"
+Set-Alias -Name ff -Value Invoke-ExaLong
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"
 Set-Alias -Name clpy -Value Invoke-CargoClippy

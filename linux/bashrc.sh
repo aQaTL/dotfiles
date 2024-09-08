@@ -34,7 +34,13 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
 export PATH=$PATH:$HOME/jetbrains_shell_scripts
 
-PS1="\[\e[36m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
+prompt_username_color="6"
+
+if ! [ -z "${SSH_CONNECTION}" ]; then
+	prompt_username_color="4"
+fi
+
+PS1="\[\e[3${prompt_username_color}m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 
 export BAT_THEME=gruvbox-dark
 

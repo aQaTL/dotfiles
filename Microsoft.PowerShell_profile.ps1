@@ -22,7 +22,11 @@ function Prompt {
 		Write-Host "`e]0;${userSign}${hostname_} ${currentDir}`a" -NoNewLine
 	}
 
-	Write-Host "${global:username}" -NoNewLine -ForegroundColor 3
+	$usernameColor = ([System.Environment]::GetEnvironmentVariable("SSH_CONNECTION") -eq $null) `
+		? "3" `
+		: "1"
+
+	Write-Host "${global:username}" -NoNewLine -ForegroundColor $usernameColor
 	Write-Host "|" -NoNewLine
 
 	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6

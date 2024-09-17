@@ -7,3 +7,4 @@
 . $PSScriptRoot\Send-File.ps1
 . $PSScriptRoot\Restart-AutoHotKey.ps1
 . $PSScriptRoot\UnixTimeStamp.ps1
+. $PSScriptRoot\Get-GitLargestObjects.ps1

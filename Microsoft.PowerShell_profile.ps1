@@ -341,6 +341,10 @@ if ($IsLinux) {
 	}
 }
 
+if ($IsLinux -or $IsMacOS) {
+	$env:MANPAGER="nvim +Man!"
+}
+
 # Additonal scripts, not commited
 $CustomPSSettingsPath = Join-Path $DotfilesDir "Custom.ps1"
 if (Test-Path $CustomPSSettingsPath) {

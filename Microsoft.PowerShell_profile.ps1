@@ -206,6 +206,7 @@ Set-Alias -Name f -Value "exa"
 Set-Alias -Name ff -Value Invoke-ExaLong
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name paiton -Value "python3"
+Set-Alias -Name open -Value Start-Process
 Set-Alias -Name clpy -Value Invoke-CargoClippy
 Set-Alias -Name cf -Value Invoke-CargoFormat
 Set-Alias -Option AllScope -Force -Name "g" -Value "git"

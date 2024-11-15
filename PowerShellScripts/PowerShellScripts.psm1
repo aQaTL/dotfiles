@@ -8,3 +8,4 @@
 . $PSScriptRoot\Restart-AutoHotKey.ps1
 . $PSScriptRoot\UnixTimeStamp.ps1
 . $PSScriptRoot\Get-GitLargestObjects.ps1
+. $PSScriptRoot\wsl.ps1

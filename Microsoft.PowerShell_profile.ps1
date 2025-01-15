@@ -349,6 +349,8 @@ if ($IsLinux) {
 
 if ($IsLinux -or $IsMacOS) {
 	$env:MANPAGER="nvim +Man!"
+
+	Set-PSReadLineKeyHandler -Chord "Ctrl+Alt+Enter" -Function InsertLineBelow
 }
 
 # Additonal scripts, not commited

@@ -27,5 +27,21 @@ function Restart-SshAgentBridge {
 	}
 
 	Write-Host "starting socat"
-	setsid socat "UNIX-LISTEN:${env:SSH_AUTH_SOCK},fork" "EXEC:`"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent`",nofork" &
+	[void](setsid socat "UNIX-LISTEN:${env:SSH_AUTH_SOCK},fork" "EXEC:`"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent`",nofork" &)
+}
+
+function Start-SshAgentBridge {
+	if (-not (Test-Path Env:\SSH_AUTH_SOCK)) {
+		throw "SSH_AUTH_SOCK environment variable not set"
+	}
+	
+	if ((Get-Process | Where-Object Name -eq "socat" | Measure-Object).Count -ne 0) {
+		return
+	} 
+
+	if (Test-Path $env:SSH_AUTH_SOCK) {
+		Remove-Item $env:SSH_AUTH_SOCK
+	}
+	
+	[void](setsid socat "UNIX-LISTEN:${env:SSH_AUTH_SOCK},fork" "EXEC:`"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent`",nofork" &)
 }

@@ -20,8 +20,26 @@ lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
 
+local lsp_disabled = false
+
+vim.keymap.set("n", "<leader>ls", function ()
+	lsp_disabled = true
+	-- vim.cmd([[LspStop ++force]])
+
+	vim.lsp.stop_client(vim.lsp.get_clients(), true)
+	print("lsp stopped")
+end, {})
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
+
+	if lsp_disabled then
+		--vim.cmd([[LspStop ++force]])
+		--
+		vim.lsp.stop_client(vim.lsp.get_clients(), true)
+		print("lsp prevented")
+		return
+	end
 
 	if client.name == "eslint" then
 		vim.cmd.LspStop('eslint')

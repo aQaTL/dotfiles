@@ -9,3 +9,4 @@
 . $PSScriptRoot\UnixTimeStamp.ps1
 . $PSScriptRoot\Get-GitLargestObjects.ps1
 . $PSScriptRoot\wsl.ps1
+. $PSScriptRoot\Abbreviations.ps1

@@ -336,6 +336,8 @@ $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
 $DotfilesDir = Split-Path -Path $RealScriptPath -Parent
 $env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"
 
+Register-Expand-Abbreviation
+
 if ($IsLinux) {
 	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
 

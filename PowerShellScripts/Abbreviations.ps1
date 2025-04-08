@@ -34,25 +34,22 @@ function Expand-Abbreviation {
     [PSConsoleReadLine]::GetBufferState([ref] $bufferState, [ref] $cursorPos)
     [string]$bufferState = $bufferState.Trim()
 
-    foreach ($i in $global:abbreviations.GetEnumerator()) {
-        [string]$abbreviation = $i.Key
-        [string]$expansion = $i.Value
+	$expansion = $global:abbreviations[$bufferState]
+	if ($null -eq $expansion) {
+		return
+	}
 
-        if ($bufferState -ne $abbreviation) {
-            continue;
-        }
+	[PSConsoleReadLine]::BackwardDeleteLine($keyInfo)
+	
+	[Int32]$desiredCursorPos = $expansion.IndexOf("\c")
+	if ($desiredCursorPos -eq -1) {
+		$desiredCursorPos = $expansion.Length
+	}
 
-        [PSConsoleReadLine]::BackwardDeleteLine($keyInfo)
-		
-		[Int32]$desiredCursorPos = $expansion.IndexOf("\c")
-		if ($desiredCursorPos -eq -1) {
-			$desiredCursorPos = $expansion.Length
-		}
-		[PSConsoleReadLine]::Insert($expansion.Substring(0, $desiredCursorPos))
-		[PSConsoleReadLine]::Insert($expansion.Substring(
-			[Math]::Min($desiredCursorPos + 2, $expansion.Length))
-		)
-		[PSConsoleReadLine]::SetCursorPosition($desiredCursorPos)
-    }
+	[PSConsoleReadLine]::Insert($expansion.Substring(0, $desiredCursorPos))
+	[PSConsoleReadLine]::Insert($expansion.Substring(
+		[Math]::Min($desiredCursorPos + 2, $expansion.Length))
+	)
+	[PSConsoleReadLine]::SetCursorPosition($desiredCursorPos)
 }
 

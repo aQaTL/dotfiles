@@ -356,7 +356,7 @@ if ($IsLinux -or $IsMacOS) {
 }
 
 # Register rustup and cargo completions
-if ($null -eq (Get-Command -ErrorAction SilentlyContinue rustup)) {
+if ($null -ne (Get-Command -ErrorAction SilentlyContinue rustup)) {
 	rustup completions powershell rustup | Join-String -Separator "`n" | Invoke-Expression
 }
 

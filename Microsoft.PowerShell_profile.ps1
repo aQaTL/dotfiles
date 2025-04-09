@@ -355,6 +355,11 @@ if ($IsLinux -or $IsMacOS) {
 	Set-PSReadLineKeyHandler -Chord "Ctrl+Alt+Enter" -Function InsertLineBelow
 }
 
+# Register rustup and cargo completions
+if ($null -eq (Get-Command -ErrorAction SilentlyContinue rustup)) {
+	rustup completions powershell rustup | Join-String -Separator "`n" | Invoke-Expression
+}
+
 # Additonal scripts, not commited
 $CustomPSSettingsPath = Join-Path $DotfilesDir "Custom.ps1"
 if (Test-Path $CustomPSSettingsPath) {

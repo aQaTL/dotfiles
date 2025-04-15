@@ -142,6 +142,16 @@ function Invoke-GitLog {
 	git log $objects
 }
 
+function Invoke-GitLogShort {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w,
+		[int]$n = 10
+	)
+	git log --oneline "-n ${n}" @w
+}
+
 function Invoke-CargoClippy {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -224,6 +234,7 @@ Set-Alias -Option AllScope -Force -Name "gp" -Value Invoke-GitPush
 Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLog
+Set-Alias -Option AllScope -Force -Name "gls" -Value Invoke-GitLogShort
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
@@ -231,6 +242,7 @@ Set-Alias -Option AllScope -Force -Name "fdhnoi" -Value Invoke-FdHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "fdnohi" -Value Invoke-FdHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "rghnoi" -Value Invoke-RgHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "rgnohi" -Value Invoke-RgHiddenNoIgnore
+Set-Alias -Force -Name "^" -Value Select-Object
 
 function Get-CommandSource {
 	param (

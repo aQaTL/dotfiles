@@ -10,3 +10,4 @@
 . $PSScriptRoot\Get-GitLargestObjects.ps1
 . $PSScriptRoot\wsl.ps1
 . $PSScriptRoot\Abbreviations.ps1
+. $PSScriptRoot\cdfzf.ps1

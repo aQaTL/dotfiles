@@ -318,11 +318,6 @@ function Set-LocationWithBat {
 
 	Set-Location -ErrorAction Stop -Path $Path
 
-	# I'm not sure if this actually is needed 
-	#if ($HasFnm) {
-		#Set-FnmOnLoad
-	#}
-
 	exa
 }
 

@@ -294,7 +294,7 @@ Import-Module posh-git
 $env:PATH += "${PathSep}$HOME${Sep}.fnm"
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
-	fnm env --use-on-cd | Out-String | Invoke-Expression
+	fnm env | Out-String | Invoke-Expression
 	$HasFnm = $true
 }
 

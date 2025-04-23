@@ -153,13 +153,9 @@ function Invoke-GitLogShort {
 }
 
 function Invoke-GitStashList {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	git stash list --pretty="format:%C(red)%h%C(reset) - %C(dim yellow)(%C(reset)%C(brightmagenta)" +
-		"%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"
+    git stash list ("--pretty=format:%C(red)%h%C(reset) - %C(dim yellow)(%C(reset)" +
+		"%C(brightmagenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)" +
+		"<%an>%C(reset)")
 }
 
 function Invoke-CargoClippy {

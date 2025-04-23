@@ -152,6 +152,16 @@ function Invoke-GitLogShort {
 	git log --oneline "-n ${n}" @w
 }
 
+function Invoke-GitStashList {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	git stash list --pretty="format:%C(red)%h%C(reset) - %C(dim yellow)(%C(reset)%C(brightmagenta)" +
+		"%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"
+}
+
 function Invoke-CargoClippy {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -235,6 +245,7 @@ Set-Alias -Option AllScope -Force -Name "ga" -Value Invoke-GitAdd
 Set-Alias -Option AllScope -Force -Name "gcd1" -Value Invoke-GitCloneDepth1
 Set-Alias -Option AllScope -Force -Name "gl" -Value Invoke-GitLog
 Set-Alias -Option AllScope -Force -Name "gls" -Value Invoke-GitLogShort
+Set-Alias -Option AllScope -Force -Name "gsl" -Value Invoke-GitStashList
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
 Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide

@@ -1,24 +1,35 @@
 local lsp = require("lsp-zero")
 local telescope = require("telescope.builtin")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-	'rust_analyzer',
+mason.setup({
+	ensure_installed = { 'rust_analyzer' },
+	handlers = {
+		function(server_name) 
+				require("lspconfig")[server_name].setup({})
+		end,
+	}
 })
+
+-- lsp.preset("recommended")
+
+-- lsp.ensure_installed({
+-- 	'rust_analyzer',
+-- })
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-})
+-- local cmp_mappings = lsp.defaults.cmp_mappings({
+-- 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+-- 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+-- 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
+-- 	["<C-Space>"] = cmp.mapping.complete(),
+-- })
 
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
+-- lsp.setup_nvim_cmp({
+-- 	mapping = cmp_mappings
+-- })
 
 local lsp_disabled = false
 

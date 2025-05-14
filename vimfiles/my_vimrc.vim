@@ -93,7 +93,7 @@ set linebreak
 set fileformat=unix
 
 " Disable syntax highlighting for markdown files
-autocmd FileType markdown setlocal syntax=OFF 
+" autocmd FileType markdown setlocal syntax=OFF 
 
 " Enable spellcheck for markdown files
 autocmd FileType markdown setlocal spell

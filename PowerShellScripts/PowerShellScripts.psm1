@@ -1,8 +1,7 @@
 . $PSScriptRoot\Use-Env.ps1
 . $PSScriptRoot\Stop-All.ps1
 . $PSScriptRoot\Import-VsDevEnv.ps1
-. $PSScriptRoot\Install-NeovimConfig.ps1
-. $PSScriptRoot\Install-BatConfig.ps1
+. $PSScriptRoot\Machine-Setup.ps1
 . $PSScriptRoot\Get-DateFromUnix.ps1
 . $PSScriptRoot\Send-File.ps1
 . $PSScriptRoot\Restart-AutoHotKey.ps1

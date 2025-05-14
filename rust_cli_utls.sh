@@ -9,14 +9,14 @@ cargo install -f bat \
 	dust \
 	tokei \
 	hyperfine \
-	ytop \
-	tealdeer \
-	bandwhich \
-	grex \
-	rmesg \
-	cargo-make \
-	loc \
-	deno \
-	papyrus \
-	zoxide \
-	basic-http-server
+	ytop
+	#tealdeer \
+	#bandwhich \
+	#grex \
+	#rmesg \
+	#cargo-make \
+	#loc \
+	#deno \
+	#papyrus \
+	#zoxide \
+	#basic-http-server

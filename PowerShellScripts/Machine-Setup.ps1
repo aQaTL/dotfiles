@@ -96,3 +96,11 @@ function Install-BatConfig {
 
 	$BatConfig | Out-File -Encoding utf8 -FilePath $BatConfigFilePath -Append
 }
+
+function Install-GlobalGitIgnore {
+	$PowerShellScriptsDir = $PSScriptRoot
+	$DotfilesDir = Split-Path -Path $PowerShellScriptsDir -Parent
+
+	mkdir ${HOME}/.config/git/
+	ln -s ${DotfilesDir}/git/.gitignore_global ${HOME}/.config/git/ignore
+}

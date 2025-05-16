@@ -75,6 +75,7 @@ FunctionsToExport = @(
 	"Import-VsDevEnv", 
 	"Install-NeovimConfig", 
 	"Install-BatConfig", 
+	"Install-GhosttyConfig", 
 	"Install-GlobalGitIgnore",
 	"Get-DateFromUnix",
 	"Send-File",

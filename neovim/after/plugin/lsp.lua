@@ -96,7 +96,12 @@ lsp.on_attach(function(client, bufnr)
 
 
 	-- configure document_highlight colors
-	vim.cmd([[ highlight LspReferenceText guibg=#4c4744 ]]) -- slightly brighter than CursorLine
+	local theme_preference = vim.fn.system("gsettings get org.gnome.desktop.interface color-scheme")
+	if string.find(theme_preference, "light") then
+		vim.cmd([[ highlight LspReferenceText guibg=#d5c4a1 ]]) -- slightly brighter than CursorLine
+	else
+		vim.cmd([[ highlight LspReferenceText guibg=#4c4744 ]]) -- slightly brighter than CursorLine
+	end
 	vim.cmd([[ highlight link LspReferenceRead CursorLine ]])
 	vim.cmd([[ highlight link LspReferenceWrite CursorLine ]])
 

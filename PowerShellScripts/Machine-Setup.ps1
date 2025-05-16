@@ -1,3 +1,10 @@
+function Get-DotfilesDir {
+	[OutputType([string])]
+	param()
+
+	return $PSScriptRoot | Split-Path -Parent
+}
+
 function Install-NeovimConfig {
 	[CmdletBinding()]
 	param (
@@ -98,9 +105,13 @@ function Install-BatConfig {
 }
 
 function Install-GlobalGitIgnore {
-	$PowerShellScriptsDir = $PSScriptRoot
-	$DotfilesDir = Split-Path -Path $PowerShellScriptsDir -Parent
-
+	$DotfilesDir = Get-Dotfilesdir
 	mkdir ${HOME}/.config/git/
 	ln -s ${DotfilesDir}/git/.gitignore_global ${HOME}/.config/git/ignore
+}
+
+function Install-GhosttyConfig {
+	$DotfilesDir = Get-DotfilesDir
+	mkdir ${HOME}/.config/ghostty/
+	ln -s ${DotfilesDir}/ghostty/config ${HOME}/.config/ghostty/config
 }

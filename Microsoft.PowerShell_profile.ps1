@@ -345,6 +345,8 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -Function NextSuggestion
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function PreviousSuggestion
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function NextHistory
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function PreviousHistory
+Set-PSReadLineKeyHandler -Chord Ctrl+f -Function ForwardChar
+Set-PSReadLineKeyHandler -Chord Ctrl+b -Function BackwardChar
 
 $RealScriptPath = (Get-Item $MyInvocation.MyCommand.Source).LinkTarget
 $DotfilesDir = Split-Path -Path $RealScriptPath -Parent

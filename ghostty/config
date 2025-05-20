@@ -51,6 +51,7 @@ clipboard-write = allow
 clipboard-paste-protection = false
 confirm-close-surface = false
 window-new-tab-position = end
+window-save-state = always
 
 keybind = ctrl+alt+one=goto_tab:1
 keybind = ctrl+alt+two=goto_tab:2

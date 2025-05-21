@@ -52,10 +52,6 @@ if ($IsWindows) {
 	$global:IsRoot=(id -u) -eq 0
 }
 
-if ($env:BAT_THEME -eq $null) {
-	$env:BAT_THEME = "gruvbox-dark"
-}
-
 function Invoke-ExaLong {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]
@@ -354,6 +350,12 @@ $env:PSModulePath += "$([IO.Path]::PathSeparator)$DotfilesDir"
 
 Register-Expand-Abbreviation
 
+enum ColorPreference {
+	light
+	dark
+}
+$global:ThemeColorPreference = [ColorPreference].dark
+
 if ($IsLinux) {
 	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
 
@@ -363,6 +365,15 @@ if ($IsLinux) {
         )
 		/usr/lib/command-not-found --no-failure-msg $commandName
 	}
+	
+	$global:ThemeColorPreference = 
+		(gsettings get org.gnome.desktop.interface color-scheme).Contains("light") `
+		? [ColorPreference]::Light : [ColorPreference]::Dark
+
+}
+
+if ($env:BAT_THEME -eq $null) {
+	$env:BAT_THEME = "gruvbox-${global:ThemeColorPreference}"
 }
 
 if ($IsLinux -or $IsMacOS) {

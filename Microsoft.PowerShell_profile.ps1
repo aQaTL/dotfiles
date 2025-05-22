@@ -354,7 +354,7 @@ enum ColorPreference {
 	light
 	dark
 }
-$global:ThemeColorPreference = [ColorPreference].dark
+$global:ThemeColorPreference = [ColorPreference]::dark
 
 if ($IsLinux) {
 	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"

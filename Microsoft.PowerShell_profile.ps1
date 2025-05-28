@@ -41,7 +41,6 @@ function RefreshEnv {
 
 $global:HOSTNAME="$(hostname)"
 
-$Sep = [IO.Path]::DirectorySeparatorChar
 $PathSep = [IO.Path]::PathSeparator
 
 if ($IsWindows) {
@@ -294,7 +293,7 @@ if ($IsWindows -and (Get-Command -ErrorAction SilentlyContinue which) -eq $null)
 
 Import-Module posh-git
 
-$env:PATH += "${PathSep}$HOME${Sep}.fnm"
+$env:PATH += $PathSep + (Join-Path $HOME .local share fnm -Resolve)
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env | Out-String | Invoke-Expression
@@ -304,7 +303,7 @@ if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 $BunPath = Join-Path $HOME .bun
 if (Test-Path $:BunPath) {
 	$env:BUN_INSTALL = $BunPath
-	$env:PATH += "${PathSep}${BunPath}${Sep}bin"
+	$env:PATH += $PathSep + (Join-Path $BunPath bin -Resolve)
 }
 Remove-Variable -Name BunPath 
 
@@ -357,7 +356,7 @@ enum ColorPreference {
 $global:ThemeColorPreference = [ColorPreference]::dark
 
 if ($IsLinux) {
-	$env:PATH += "${PathSep}$HOME${Sep}.cargo${Sep}bin"
+	$env:PATH += $PathSep + (Join-Path $HOME .cargo bin)
 
     $ExecutionContext.InvokeCommand.CommandNotFoundAction += {
         param (

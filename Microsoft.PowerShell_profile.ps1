@@ -293,7 +293,10 @@ if ($IsWindows -and (Get-Command -ErrorAction SilentlyContinue which) -eq $null)
 
 Import-Module posh-git
 
-$env:PATH += $PathSep + (Join-Path $HOME .local share fnm -Resolve)
+$fnmPath = Join-Path $HOME .local share fnm -Resolve -ErrorAction SilentlyContinue
+if ($null -ne $fnmPath) {
+	$env:PATH += $PathSep + $fnmPath
+}
 
 if ((Get-Command -ErrorAction SilentlyContinue fnm) -ne $null) {
 	fnm env | Out-String | Invoke-Expression

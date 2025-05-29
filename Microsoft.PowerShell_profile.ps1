@@ -179,7 +179,7 @@ function Remove-ItemForce {
 		[string[]]
 		$w
 	)
-	Remove-Item -Force -Recurse -Confirm @w 
+	Remove-Item -Force -Recurse -Confirm -Path $w 
 }
 
 function Invoke-Neovide {

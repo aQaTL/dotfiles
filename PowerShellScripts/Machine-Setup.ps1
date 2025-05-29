@@ -14,20 +14,11 @@ function Install-NeovimConfig {
 	Write-Verbose "Using neovim config dir: $MyNeovimConfigDir"
 
 	if ($IsWindows) {
-		$PackerDir = "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 		$NeovimConfigDir = "$env:LOCALAPPDATA\nvim"
 	} else {
-		$PackerDir = "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 		$NeovimConfigDir = "$HOME/.config/nvim"
 	}
 	$NeovimInitFile = Join-Path $NeovimConfigDir "init.lua"
-
-	if (Test-Path $PackerDir) {
-		Write-Warning "Packer dir already exists! ($PackerDir)"
-	} else {
-		Write-Debug "Downloading packer to $PackerDir"
-		git clone --depth 1 "https://github.com/wbthomason/packer.nvim" $PackerDir
-	}
 
 	if (Test-Path $NeovimInitFile) {
 		Write-Warning "Init file already exists!"
@@ -62,13 +53,6 @@ require(`"dotfiles`")
 	Write-Host "$Config"
 	Write-Host ("=" * 80)
 	Write-Verbose "Writing config file to $NeovimInitFile"
-
-	$PackerConfigFile = Join-Path $MyNeovimConfigDir "lua" "dotfiles" "packer.lua"
-
-	Write-Verbose "Now, to download the plugins: "
-	Write-Verbose "1. Open $PackerConfigFile in neovim"
-	Write-Verbose "2. Run :so"
-	Write-Verbose "3. Run :PackerSync"
 
 	$Config | Out-File -FilePath $NeovimInitFile -Encoding utf8
 	

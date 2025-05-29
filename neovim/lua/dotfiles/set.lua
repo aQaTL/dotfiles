@@ -14,6 +14,10 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = false
 
+-- Completion
+
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+
 -- Searching
 vim.opt.hlsearch = true
 vim.opt.incsearch = true

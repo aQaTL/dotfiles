@@ -75,7 +75,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
+		tag = "v0.10.0",
 		lazy = false,
 		build = function()
 			require("nvim-treesitter.install").update({ with_sync = true })()

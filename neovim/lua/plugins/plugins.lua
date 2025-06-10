@@ -1,6 +1,7 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
+		tag = "v2.0.0",
 		lazy = false,
 		opts = {
 			ensure_installed = { "rust_analyzer" },
@@ -9,6 +10,10 @@ return {
 			{ "mason-org/mason.nvim", opts = {} },
 			"neovim/nvim-lspconfig",
 		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		tag = "v2.3.0",
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -28,6 +33,7 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
@@ -60,6 +66,7 @@ return {
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
+		tag = "v1.12.0",
 		config = function()
 			require("nvim-tree").setup({
 				actions = {

@@ -99,3 +99,29 @@ function Install-GhosttyConfig {
 	mkdir ${HOME}/.config/ghostty/
 	ln -s ${DotfilesDir}/ghostty/config ${HOME}/.config/ghostty/config
 }
+
+function Install-KittyConfig {
+	$DotfilesDir = Get-DotfilesDir
+	$KittyConfigDir = "${HOME}/.config/kitty"
+	New-Item -Type Directory -ErrorAction SilentlyContinue $KittyConfigDir
+	$KittyConfigFile = Join-Path $KittyConfigDir "kitty.conf"
+	$KittyMyConfigFile = Join-Path $DotfilesDir "kitty" "kitty.conf"
+	$KittyConfigSrc = "include ${KittyMyConfigFile}"
+	if (-not (Test-Path $KittyConfigFile)) {
+		$KittyConfigSrc | Out-File $KittyConfigFile
+	} else {
+		[string[]]$KittyWholeConfigFileSrc = Get-Content $KittyConfigFile
+		if (($KittyWholeConfigFileSrc | Where-Object { $_.Contains($KittyConfigSrc) }).Count -ne 0) {
+			throw "$KittyConfigFile already includes my config" 
+		}
+		# Prepend the config 
+		[string[]]$KittyWholeConfigFileSrc = @(
+			$KittyWholeConfigFileSrc[0], 
+			"",
+			$KittyConfigSrc
+		) + 
+			$KittyWholeConfigFileSrc[1..($KittyWholeConfigFileSrc.Count)]
+
+		$KittyWholeConfigFileSrc | Out-File $KittyConfigFile
+	}
+}

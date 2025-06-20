@@ -77,6 +77,7 @@ FunctionsToExport = @(
 	"Install-BatConfig", 
 	"Install-GhosttyConfig", 
 	"Install-GlobalGitIgnore",
+	"Install-KittyConfig",
 	"Get-DateFromUnix",
 	"Send-File",
 	"Restart-AutoHotKey",

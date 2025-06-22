@@ -36,15 +36,11 @@ function Install-NeovimConfig {
 
 	New-Item -ItemType Directory -Path $NeovimConfigDir -Force | Out-Null
 	
-	$MyNeovimConfigAfterDir = Join-Path $MyNeovimConfigDir "after"
-
 	if ($IsWindows) {
 		$MyNeovimConfigDir = $MyNeovimConfigDir.Replace("\", "\\")
-		$MyNeovimConfigAfterDir = $MyNeovimConfigAfterDir.Replace("\", "\\")
 	} 
 	$Config = @"
 vim.opt.runtimepath:append(',$MyNeovimConfigDir')
-vim.opt.runtimepath:append(',$MyNeovimConfigAfterDir')
 require(`"dotfiles`")
 "@
 	

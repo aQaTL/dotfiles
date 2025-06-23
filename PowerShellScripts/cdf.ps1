@@ -1,5 +1,5 @@
 function cdf {
-	[string]$path = fzf
+	[string]$path = (fd --type dir | fzf)
 	if (-not $?) {
 		return
 	}

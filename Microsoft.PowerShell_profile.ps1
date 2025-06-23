@@ -314,7 +314,7 @@ $env:LANGUAGE = "en_US"
 
 function Set-LocationWithBat {
 	param (
-		$Path
+		[string]$Path
 	)
 
 	if ($Path -eq $null -or $Path.Trim().Length -eq 0) {

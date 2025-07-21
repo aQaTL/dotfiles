@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cargo install -f bat \
-	exa \
+	eza \
 	ripgrep \
 	fd-find \
 	procs \

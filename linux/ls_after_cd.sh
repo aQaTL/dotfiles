@@ -1,7 +1,7 @@
-# Do automatically an `exa` after every successfull cd:
+# Do automatically an `eza` after every successfull cd:
 
 function cd {
-    builtin cd "$@" && exa
+    builtin cd "$@" && eza
 }
 
 # Go up n levels:

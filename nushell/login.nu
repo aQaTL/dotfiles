@@ -1,6 +1,6 @@
 alias v = nvim
 
-alias f = exa
+alias f = eza
 alias ff = ls
 alias a = bat
 alias paiton = python3

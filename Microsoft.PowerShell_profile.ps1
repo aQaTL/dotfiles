@@ -57,7 +57,7 @@ function Invoke-ExaLong {
 		[string[]]
 		$w
 	)
-	exa --long @w
+	eza --long @w
 }
 
 function Invoke-BatHelp {
@@ -217,7 +217,7 @@ function Invoke-RgHiddenNoIgnore {
 	rg --hidden --no-ignore --ignore-case @w
 }
 
-Set-Alias -Name f -Value "exa"
+Set-Alias -Name f -Value "eza"
 Set-Alias -Name ff -Value Invoke-ExaLong
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name ah -Value "Invoke-BatHelp"
@@ -323,7 +323,7 @@ function Set-LocationWithBat {
 
 	Set-Location -ErrorAction Stop -Path $Path
 
-	exa
+	eza
 }
 
 Remove-Item alias:\cd

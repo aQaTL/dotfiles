@@ -10,7 +10,7 @@ alias gpl=git\ pull
 alias gcd1=git\ clone\ --depth=1
 alias gc=git\ checkout
 
-alias f=exa
+alias f=eza
 alias a=bat
 alias v=nvim
 alias py=python3

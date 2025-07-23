@@ -159,7 +159,9 @@ function Invoke-CargoClippy {
 		[string[]]
 		$w
 	)
-	cargo clippy --workspace --all-targets @w
+	$fmtArgs = $w | Join-String -Separator " "
+	Write-Host "`e]0;cargo clippy --workspace ${fmtArgs}`a" -NoNewline
+	cargo clippy --workspace @w
 }
 
 function Invoke-CargoClippyAllTargets {
@@ -168,6 +170,8 @@ function Invoke-CargoClippyAllTargets {
 		[string[]]
 		$w
 	)
+	$fmtArgs = $w | Join-String -Separator " "
+	Write-Host "`e]0;cargo clippy --workspace --all-targets ${fmtArgs}`a" -NoNewline
 	cargo clippy --workspace --all-targets @w
 }
 

@@ -159,7 +159,16 @@ function Invoke-CargoClippy {
 		[string[]]
 		$w
 	)
-	cargo clippy --all-targets @w
+	cargo clippy --workspace --all-targets @w
+}
+
+function Invoke-CargoClippyAllTargets {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	cargo clippy --workspace --all-targets @w
 }
 
 function Invoke-CargoFormat {
@@ -223,7 +232,8 @@ Set-Alias -Name a -Value "bat"
 Set-Alias -Name ah -Value "Invoke-BatHelp"
 Set-Alias -Name paiton -Value "python3"
 Set-Alias -Name open -Value Start-Process
-Set-Alias -Name clpy -Value Invoke-CargoClippy
+Set-Alias -Name c -Value Invoke-CargoClippy
+Set-Alias -Name ca -Value Invoke-CargoClippyAllTargets
 Set-Alias -Name cf -Value Invoke-CargoFormat
 Set-Alias -Option AllScope -Force -Name "g" -Value "git"
 Set-Alias -Option AllScope -Force -Name "gs" -Value Invoke-GitStatus

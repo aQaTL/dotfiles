@@ -80,14 +80,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		})
 
 		vim.api.nvim_create_autocmd({ "CursorHold" }, {
-			pattern = { "*.rs" },
+			--pattern = { "*.rs" },
 			callback = function(ev)
 				vim.lsp.buf.document_highlight(ev)
 			end
 		})
 
 		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-			pattern = { "*.rs" },
+			--pattern = { "*.rs" },
 			callback = function(ev)
 				vim.lsp.buf.clear_references()
 			end

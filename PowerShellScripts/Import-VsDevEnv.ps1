@@ -5,7 +5,7 @@ function Import-VsDevEnv {
 }
 
 function GetVsInstallationInfoFromCimInstance {
-	$vsInstance = Get-CimInstance MSFT_VSInstance
+	$vsInstance = Get-CimInstance MSFT_VSInstance -ErrorAction SilentlyContinue
 	if ($null -eq $vsInstance) {
 		return $null;
 	}

@@ -1,3 +1,22 @@
+function Setup-Machine {
+	param (
+		[Parameter(Mandatory = $true)]
+		[ValidateSet(
+			"Install-NeovimConfig", 
+			"Install-GhosttyConfig", 
+			"Install-GlobalGitIgnore", 
+			"Install-KittyConfig", 
+			"Install-BatConfig", 
+			"Setup-GSettings"
+		)]
+		[String[]]$Command
+	)
+
+	foreach ($c in $Command) {
+		& $Command
+	}
+}
+
 function Get-DotfilesDir {
 	[OutputType([string])]
 	param()
@@ -119,5 +138,32 @@ function Install-KittyConfig {
 			$KittyWholeConfigFileSrc[1..($KittyWholeConfigFileSrc.Count)]
 
 		$KittyWholeConfigFileSrc | Out-File $KittyConfigFile
+	}
+}
+
+function Setup-GSettings {
+	$ConfigSetInvocations = [ordered]@{
+		InitialKeyRepeatDelay = "gsettings set org.gnome.desktop.peripherals.keyboard delay 280";
+		MouseButtonModifier = "gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'";
+		MouseAccelerationDisable = "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'";
+	}
+
+	Write-Host "Config to be applied:"
+	Write-Host $ConfigSetInvocations
+	Write-Host ""
+
+	$Continue = $Host.Ui.PromptForChoice(
+		"Setup-GSettings",
+		"Continue?",
+		@("&Yes", "&No"),
+		1
+	)
+	if ($Continue -ne 0) {
+		Write-Host "Aborted"
+		return
+	}
+	
+	foreach ($it in $ConfigSetInvocations.GetEnumerator()) {
+		& $it.Value 
 	}
 }

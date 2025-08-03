@@ -7,7 +7,8 @@ function Setup-Machine {
 			"Install-GlobalGitIgnore", 
 			"Install-KittyConfig", 
 			"Install-BatConfig", 
-			"Setup-GSettings"
+			"Setup-GSettings",
+			"Install-GitDelta"
 		)]
 		[String[]]$Command
 	)
@@ -167,3 +168,18 @@ function Setup-GSettings {
 		& $it.Value 
 	}
 }
+
+function Install-GitDelta {
+	param (
+		[switch]$Force
+	)
+	
+	$ForceFlag = $Force ? "--force" : $null
+	cargo install --locked $ForceFlag git-delta
+
+	git config set --global core.pager delta
+	git config set --global interactive.diffFilter "delta --color-only"
+	git config set --global delta.navigate true
+	git config set --global merge.conflictStyle zdiff3
+}
+

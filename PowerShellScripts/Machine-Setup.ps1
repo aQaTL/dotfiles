@@ -147,6 +147,7 @@ function Setup-GSettings {
 		InitialKeyRepeatDelay = "gsettings set org.gnome.desktop.peripherals.keyboard delay 280";
 		MouseButtonModifier = "gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'";
 		MouseAccelerationDisable = "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'";
+		CenterWindow = "gsettings set org.gnome.desktop.wm.keybindings move-to-center `"['<Super>Return']`"";
 	}
 
 	Write-Host "Config to be applied:"
@@ -165,7 +166,7 @@ function Setup-GSettings {
 	}
 	
 	foreach ($it in $ConfigSetInvocations.GetEnumerator()) {
-		& $it.Value 
+		Invoke-Expression -Command $it.Value 
 	}
 }
 

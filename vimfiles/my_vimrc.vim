@@ -202,3 +202,8 @@ if has("gui_running")
 	" Highlights current line
 	set cursorline
 endif
+
+if has("ide")
+	set clipboard&
+endif
+

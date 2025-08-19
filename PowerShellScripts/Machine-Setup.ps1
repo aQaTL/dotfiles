@@ -186,7 +186,22 @@ function Install-GitDelta {
 }
 
 function Setup-GitConfig {
-	git config set --global push.autoSetupRemote true
-	git config set --global rerere.enabled true
-	git config set --global init.defaultBranch "master"
+	[CmdletBinding()]
+	param() {}
+
+	Set-StrictMode -Version Latest
+	$ErrorActionPreference = "Stop"
+	$PSNativeCommandUseErrorActionPreference = $true
+
+	$settings = [ordered]@{
+		"push.autoSetupRemote" = "true";
+		"rerere.enabled" = "true";
+		"init.defaultBranch" = "master";
+	}
+	foreach ($it in $settings.GetEnumerator()) {
+		Write-Host "git config --global " -NoNewline
+		Write-Host "$($it.Key) " -ForegroundColor Yellow -NoNewline
+		Write-Host $it.Value -ForegroundColor Magenta
+		git config --global $it.key $it.value
+	}
 }

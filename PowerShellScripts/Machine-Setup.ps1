@@ -8,7 +8,8 @@ function Setup-Machine {
 			"Install-KittyConfig", 
 			"Install-BatConfig", 
 			"Setup-GSettings",
-			"Install-GitDelta"
+			"Install-GitDelta",
+			"Setup-GitConfig"
 		)]
 		[String[]]$Command
 	)
@@ -184,3 +185,8 @@ function Install-GitDelta {
 	git config set --global merge.conflictStyle zdiff3
 }
 
+function Setup-GitConfig {
+	git config set --global push.autoSetupRemote true
+	git config set --global rerere.enabled true
+	git config set --global init.defaultBranch "master"
+}

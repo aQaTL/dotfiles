@@ -44,6 +44,7 @@
 
 command = /usr/bin/pwsh
 font-family = "Cascadia Code NF"
+font-size = 13
 theme = dark:"GruvboxDark",light:"GruvboxLightHard"
 unfocused-split-opacity = 1
 scrollback-limit = 1048576000

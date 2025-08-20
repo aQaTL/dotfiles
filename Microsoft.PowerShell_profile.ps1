@@ -26,11 +26,15 @@ function Prompt {
 		? "3" `
 		: "1"
 
+	Write-Host "`e]133;A`a" -NoNewline
+
 	Write-Host "${global:username}" -NoNewLine -ForegroundColor $usernameColor
 	Write-Host "|" -NoNewLine
 
 	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine
+
+	Write-Host "`e]133;B`a" -NoNewline
 
 	" "
 }

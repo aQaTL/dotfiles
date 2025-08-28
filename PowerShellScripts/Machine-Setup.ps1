@@ -152,7 +152,7 @@ function Setup-GSettings {
 	}
 
 	Write-Host "Config to be applied:"
-	Write-Host $ConfigSetInvocations
+	Write-Output $ConfigSetInvocations
 	Write-Host ""
 
 	$Continue = $Host.Ui.PromptForChoice(

@@ -179,29 +179,36 @@ function Install-GitDelta {
 	$ForceFlag = $Force ? "--force" : $null
 	cargo install --locked $ForceFlag git-delta
 
-	git config set --global core.pager delta
-	git config set --global interactive.diffFilter "delta --color-only"
-	git config set --global delta.navigate true
-	git config set --global merge.conflictStyle zdiff3
+	$git_delta_settings = [ordered]@{
+		"core.pager" = "delta";
+		"interactive.diffFilter" = "delta --color-only";
+		"delta.navigate" = "true";
+		"delta.hyperlinks" = "true";
+		"merge.conflictStyle" = "zdiff3";
+	}
+	Setup-GitConfig -Settings $git_delta_settings
+}
+
+$setup_gitconfig_settings = [ordered]@{
+	"push.autoSetupRemote" = "true";
+	"rerere.enabled" = "true";
+	"init.defaultBranch" = "master";
 }
 
 function Setup-GitConfig {
 	[CmdletBinding()]
-	param() {}
+	param (
+		[System.Collections.IEnumerable]$Settings = $setup_gitconfig_settings
+	)
 
 	Set-StrictMode -Version Latest
 	$ErrorActionPreference = "Stop"
 	$PSNativeCommandUseErrorActionPreference = $true
 
-	$settings = [ordered]@{
-		"push.autoSetupRemote" = "true";
-		"rerere.enabled" = "true";
-		"init.defaultBranch" = "master";
-	}
-	foreach ($it in $settings.GetEnumerator()) {
-		Write-Host "git config --global " -NoNewline
+	foreach ($it in $Settings.GetEnumerator()) {
+		Write-Host "git config set --global " -NoNewline
 		Write-Host "$($it.Key) " -ForegroundColor Yellow -NoNewline
 		Write-Host $it.Value -ForegroundColor Magenta
-		git config --global $it.key $it.value
+		git config set --global $it.key $it.value
 	}
 }

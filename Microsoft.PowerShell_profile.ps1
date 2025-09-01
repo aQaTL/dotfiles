@@ -216,6 +216,14 @@ function Invoke-Neovide {
 	Start-Process -FilePath $neovidePath -ArgumentList $arguments
 }
 
+if ($null -ne (Get-Command -ErrorAction SilentlyContinue kitten)) {
+	function HyperlinkedGrep {
+		kitten hyperlinked-grep @Args
+	}
+
+	Set-Alias -Scope Global -Force -Name rg -Value HyperlinkedGrep
+}
+
 function Invoke-FdHiddenNoIgnore {
 	param (
 		[Parameter(Position = 0, ValueFromRemainingArguments)]

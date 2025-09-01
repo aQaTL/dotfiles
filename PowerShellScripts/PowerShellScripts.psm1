@@ -10,3 +10,4 @@
 . $PSScriptRoot\wsl.ps1
 . $PSScriptRoot\Abbreviations.ps1
 . $PSScriptRoot\cdf.ps1
+. $PSScriptRoot\DevScripts.ps1

@@ -22,6 +22,10 @@ vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
+-- When searching, ignore case only when the whole pattern is lowercase
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
 vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
@@ -29,7 +33,7 @@ vim.opt.colorcolumn = "100"
 
 -- More natural split placement
 vim.opt.splitbelow = true
-vim.opt.splitright = true 
+vim.opt.splitright = true
 
 -- Highlights current line
 vim.opt.cursorline = true

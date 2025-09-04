@@ -47,6 +47,18 @@ vim.lsp.config("rust_analyzer", {
 	}
 })
 
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {
+					"vim"
+				}
+			}
+		}
+	}
+})
+
 local lsp_disabled = false
 
 vim.keymap.set("n", "<leader>ls", function ()

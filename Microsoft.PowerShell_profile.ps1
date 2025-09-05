@@ -158,45 +158,25 @@ function Invoke-GitStashList {
 }
 
 function Invoke-CargoClippy {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	$fmtArgs = $w | Join-String -Separator " "
+	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo clippy --workspace ${fmtArgs}`a" -NoNewline
 	cargo clippy --workspace @w
 }
 
 function Invoke-CargoClippyAllTargets {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	$fmtArgs = $w | Join-String -Separator " "
+	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo clippy --workspace --all-targets ${fmtArgs}`a" -NoNewline
 	cargo clippy --workspace --all-targets @w
 }
 
 function Invoke-CargoFormat {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	$fmtArgs = $w | Join-String -Separator " "
+	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo fmt ${fmtArgs}`a" -NoNewline
 	cargo fmt @w
 }
 
 function Remove-ItemForce {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	Remove-Item -Force -Recurse -Confirm -Path $w 
+	Remove-Item -Force -Recurse -Confirm -Path @Args
 }
 
 function Invoke-Neovide {
@@ -225,21 +205,11 @@ if ($null -ne (Get-Command -ErrorAction SilentlyContinue kitten)) {
 }
 
 function Invoke-FdHiddenNoIgnore {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	fd --hidden --no-ignore --ignore-case @w
+	fd --hidden --no-ignore --ignore-case @Args
 }
 
 function Invoke-RgHiddenNoIgnore {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	rg --hidden --no-ignore --ignore-case @w
+	rg --hidden --no-ignore --ignore-case @Args
 }
 
 Set-Alias -Name f -Value "eza"

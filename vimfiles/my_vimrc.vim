@@ -205,5 +205,10 @@ endif
 
 if has("ide")
 	set clipboard&
+
+	" Mappings for 'camelHumps' jumps
+	map <leader>w [w
+	map <leader>e ]w
+	map <leader>b [b
 endif
 

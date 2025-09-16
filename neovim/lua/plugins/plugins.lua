@@ -18,6 +18,10 @@ return {
 	{
 		"ellisonleao/gruvbox.nvim",
 		config = function()
+			require("gruvbox").setup({
+				contrast = "hard"
+			})
+
 			local theme_preference = vim.fn.system("gsettings get org.gnome.desktop.interface color-scheme")
 			if string.find(theme_preference, "light") then
 				vim.o.background = "light"
@@ -26,7 +30,7 @@ return {
 			end
 
 			vim.cmd([[colorscheme gruvbox]])
-		end
+		end,
 	},
 	{
 		"airblade/vim-gitgutter",

@@ -56,12 +56,11 @@ if ($IsWindows) {
 }
 
 function Invoke-ExaLong {
-	param (
-		[Parameter(Position = 0, ValueFromRemainingArguments)]
-		[string[]]
-		$w
-	)
-	eza --long @w
+	eza --long @Args
+}
+
+function Invoke-ExaLongAll {
+	eza --long --all @Args
 }
 
 function Invoke-BatHelp {
@@ -214,6 +213,7 @@ function Invoke-RgHiddenNoIgnore {
 
 Set-Alias -Name f -Value "eza"
 Set-Alias -Name ff -Value Invoke-ExaLong
+Set-Alias -Name fa -Value Invoke-ExaLongAll
 Set-Alias -Name a -Value "bat"
 Set-Alias -Name ah -Value "Invoke-BatHelp"
 Set-Alias -Name paiton -Value "python3"

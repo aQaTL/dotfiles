@@ -159,19 +159,19 @@ function Invoke-GitStashList {
 function Invoke-CargoClippy {
 	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo clippy --workspace ${fmtArgs}`a" -NoNewline
-	cargo clippy --workspace @w
+	cargo clippy --workspace @Args
 }
 
 function Invoke-CargoClippyAllTargets {
 	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo clippy --workspace --all-targets ${fmtArgs}`a" -NoNewline
-	cargo clippy --workspace --all-targets @w
+	cargo clippy --workspace --all-targets @Args
 }
 
 function Invoke-CargoFormat {
 	$fmtArgs = $Args | Join-String -Separator " "
 	Write-Host "`e]0;cargo fmt ${fmtArgs}`a" -NoNewline
-	cargo fmt @w
+	cargo fmt @Args
 }
 
 function Remove-ItemForce {

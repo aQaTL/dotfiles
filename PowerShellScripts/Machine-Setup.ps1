@@ -143,16 +143,58 @@ function Install-KittyConfig {
 	}
 }
 
+
 function Setup-GSettings {
-	$ConfigSetInvocations = [ordered]@{
-		InitialKeyRepeatDelay = "gsettings set org.gnome.desktop.peripherals.keyboard delay 280";
-		MouseButtonModifier = "gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'";
-		MouseAccelerationDisable = "gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'flat'";
-		CenterWindow = "gsettings set org.gnome.desktop.wm.keybindings move-to-center `"['<Super>Return']`"";
+	class Setting {
+		[string]$Path
+		[string]$Key
+		[string]$Value
+
+		[string]ToString() {
+			return "$($this.Path) $($this.Key) $($this.Value)"
+		}
+	}
+
+	[Setting[]]$ConfigSetInvocations = @(
+		[Setting]@{
+			Path = "org.gnome.desktop.peripherals.keyboard";
+			Key = "delay";
+			Value = 200;
+		},
+		[Setting]@{
+			Path = "org.gnome.desktop.wm.preferences";
+			Key = "mouse-button-modifier";
+			Value = "'<Alt>'";
+		},
+		[Setting]@{
+			Path = "org.gnome.desktop.peripherals.mouse";
+			Key = "accel-profile";
+			Value = "'flat'";
+		},
+		[Setting]@{
+			Path = "org.gnome.desktop.wm.keybindings";
+			Key = "move-to-center";
+			Value = "`"['<Super>Return']`"";
+		}
+	)
+	
+	1..12 | ForEach-Object {
+		$ConfigSetInvocations += [Setting]@{
+			Path = "org.gnome.desktop.wm.keybindings";
+			Key = "switch-to-workspace-$_";
+			Value = "`"['<Super>F${_}']`"";
+		}
+	}
+	1..12 | ForEach-Object { 
+		$ConfigSetInvocations += [Setting]@{
+			Path = "org.gnome.desktop.wm.keybindings";
+			Key = "move-to-workspace-$_";
+			Value = "`"['<Primary><Super>F${_}']`"";
+		}
 	}
 
 	Write-Host "Config to be applied:"
-	Write-Output $ConfigSetInvocations
+	Write-Host $($ConfigSetInvocations | ForEach-Object { $_.ToString() } | Join-String -Separator "`n") -ForegroundColor Yellow
 	Write-Host ""
 
 	$Continue = $Host.Ui.PromptForChoice(
@@ -166,8 +208,18 @@ function Setup-GSettings {
 		return
 	}
 	
-	foreach ($it in $ConfigSetInvocations.GetEnumerator()) {
-		Invoke-Expression -Command $it.Value 
+	foreach ($it in $ConfigSetInvocations) {
+		Write-Host "gsettings " -NoNewline
+		Write-Host "set " -ForegroundColor Cyan -NoNewline
+		Write-Host $it.Path -ForegroundColor Yellow -NoNewline
+		Write-Host " " -NoNewline
+		Write-Host $it.Key -ForegroundColor Blue -NoNewline
+		Write-Host " " -NoNewline
+		Write-Host $it.Value -ForegroundColor Magenta
+
+		$cmd = "gsettings set $($it.Path) $($it.Key) $($it.Value)"
+
+		Invoke-Expression -Command $cmd
 	}
 }
 

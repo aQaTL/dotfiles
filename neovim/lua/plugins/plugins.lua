@@ -67,7 +67,14 @@ return {
 				end,
 				{ noremap = true }
 			)
-		end
+		end,
+		opts = {
+			pickers = {
+				man_pages = {
+					sections = { "ALL" }
+				}
+			}
+		}
 	},
 	{
 		"nvim-tree/nvim-tree.lua",

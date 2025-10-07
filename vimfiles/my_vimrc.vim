@@ -86,8 +86,11 @@ set wildmenu
 set wildmode=longest:list,full
 
 " Line wrapping and breaking for better reading
-set wrap
+"set wrap
 set linebreak
+
+" Actually, disable line wrapping for easier log viewing
+set nowrap
 
 " Unix line endings
 set fileformat=unix

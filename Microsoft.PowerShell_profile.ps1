@@ -200,7 +200,7 @@ if ($null -ne (Get-Command -ErrorAction SilentlyContinue kitten)) {
 		kitten hyperlinked-grep @Args
 	}
 
-	Set-Alias -Scope Global -Force -Name rg -Value HyperlinkedGrep
+	#Set-Alias -Scope Global -Force -Name rg -Value HyperlinkedGrep
 }
 
 function Invoke-FdHiddenNoIgnore {

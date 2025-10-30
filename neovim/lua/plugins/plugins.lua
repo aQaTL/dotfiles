@@ -56,7 +56,7 @@ return {
 			vim.keymap.set("n", "<leader>m", function ()
 				builtin.man_pages({ sections = { "ALL" } })
 			end, {})
-			vim.keymap.set("n", "<leader>", builtin.help_tags, {})
+			vim.keymap.set("n", "<leader>h", builtin.help_tags, {})
 
 			-- TODO: Remove the leader. Problem: lsp-zero default mappings override <F3> when attaching lsp
 			vim.keymap.set("n", "<leader><F3>", builtin.current_buffer_fuzzy_find, {})

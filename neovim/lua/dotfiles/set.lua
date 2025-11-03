@@ -15,6 +15,9 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = false
 
+-- Show current file in title bar
+vim.opt.title = true
+
 -- Completion
 
 vim.opt.completeopt = { "menuone", "noselect", "popup" }

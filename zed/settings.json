@@ -20,7 +20,7 @@
   },
   "buffer_font_family": "Cascadia Mono",
   "theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
   },

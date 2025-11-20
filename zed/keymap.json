@@ -1,0 +1,55 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "F2": "project_symbols::Toggle",
+      "alt-1": "vim::ToggleProjectPanelFocus",
+      "ctrl-shift-f": "project_search::SearchInNew"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "F1": "editor::Hover",
+      "F3": "buffer_search::Deploy",
+      "shift-F3": "buffer_search::DeployReplace",
+      "ctrl-l": "workspace::ActivateNextPane",
+      "ctrl-shift-o": "project_symbols::Toggle"
+    }
+  },
+  {
+    "context": "!ProjectPanel",
+    "bindings": {
+      "alt-1": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "alt-1": "workspace::ToggleRightDock",
+      "ctrl-shift-n": "project_panel::NewFile",
+      "ctrl-alt-shift-n": "project_panel::NewDirectory"
+    }
+  }
+]

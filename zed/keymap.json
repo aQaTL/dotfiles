@@ -10,7 +10,6 @@
     "context": "",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      "F2": "project_symbols::Toggle",
       "alt-1": "vim::ToggleProjectPanelFocus",
       "ctrl-shift-f": "project_search::SearchInNew"
     }
@@ -41,10 +40,17 @@
     "context": "Editor",
     "bindings": {
       "F1": "editor::Hover",
+      "F2": "project_symbols::Toggle",
       "F3": "buffer_search::Deploy",
       "shift-F3": "buffer_search::DeployReplace",
       "ctrl-l": "workspace::ActivateNextPane",
       "ctrl-shift-o": "project_symbols::Toggle"
+    }
+  },
+  {
+    "context": "!Editor",
+    "bindings": {
+      "F2": "file_finder::Toggle"
     }
   },
   {

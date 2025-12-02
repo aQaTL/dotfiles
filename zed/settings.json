@@ -19,6 +19,7 @@
     "custom": 1.2
   },
   "buffer_font_family": "Cascadia Mono",
+  "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Hard",

@@ -11,7 +11,8 @@
     "bindings": {
       // "shift shift": "file_finder::Toggle"
       "alt-1": "vim::ToggleProjectPanelFocus",
-      "ctrl-shift-f": "project_search::SearchInNew"
+      "ctrl-shift-f": "project_search::SearchInNew",
+      "F6": "task::Spawn"
     }
   },
   {

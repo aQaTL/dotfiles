@@ -26,6 +26,7 @@
     "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
   },
+  "restore_on_startup": "none",
   "lsp": {
     "rust-analyzer": {
       "settings": {

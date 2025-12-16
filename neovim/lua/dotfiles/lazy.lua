@@ -91,19 +91,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "trigger autocompletion",
 		})
 
-		vim.api.nvim_create_autocmd({ "CursorHold" }, {
-			--pattern = { "*.rs" },
-			callback = function(ev)
-				vim.lsp.buf.document_highlight(ev)
-			end
-		})
+		if client.server_capabilities.documentHighlightProvider then 
+			vim.api.nvim_create_autocmd({ "CursorHold" }, {
+				callback = function(ev)
+					vim.lsp.buf.document_highlight(ev)
+				end
+			})
 
-		vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-			--pattern = { "*.rs" },
-			callback = function(ev)
-				vim.lsp.buf.clear_references()
-			end
-		})
+			vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+				callback = function(ev)
+					vim.lsp.buf.clear_references()
+				end
+			})
+		end
 
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "<F12>", vim.lsp.buf.definition, opts)

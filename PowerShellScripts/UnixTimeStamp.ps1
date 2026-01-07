@@ -1,4 +1,5 @@
 function ConvertFrom-UnixTimeStamp {
+	[OutputType([string])]
 	param (
 		[Parameter(Mandatory = $true)]
 		[double]$UnixTimeStamp,
@@ -16,6 +17,7 @@ function ConvertFrom-UnixTimeStamp {
 }
 
 function ConvertTo-UnixTimeStamp {
+	[OutputType([UInt64])]
 	param (
 		[DateTime]$Date = (Get-Date),
 

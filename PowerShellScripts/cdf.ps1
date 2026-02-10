@@ -8,5 +8,6 @@ function cdf {
 	if ($path.UnixStat.ItemType -ne "Directory") {
 		[string]$path = $path | Split-Path -Parent
 	}
-	cd $path
+	Push-Location $path
+	eza
 }

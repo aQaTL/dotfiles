@@ -159,7 +159,7 @@ function Setup-GSettings {
 		[Setting]@{
 			Path = "org.gnome.desktop.peripherals.keyboard";
 			Key = "delay";
-			Value = 200;
+			Value = 300;
 		},
 		[Setting]@{
 			Path = "org.gnome.desktop.wm.preferences";

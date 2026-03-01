@@ -195,6 +195,17 @@ function Invoke-Neovide {
 	Start-Process -FilePath $neovidePath -ArgumentList $arguments
 }
 
+function Invoke-KittyNeovim {
+	param (
+		[Parameter(Position = 0, ValueFromRemainingArguments)]
+		[string[]]
+		$w
+	)
+	$arguments = @("--class=nvim-kitty", "nvim")
+	$arguments += $w
+	Start-Process -FilePath "kitty" -ArgumentList $arguments
+}
+
 if ($null -ne (Get-Command -ErrorAction SilentlyContinue kitten)) {
 	function HyperlinkedGrep {
 		kitten hyperlinked-grep @Args
@@ -235,12 +246,16 @@ Set-Alias -Option AllScope -Force -Name "gls" -Value Invoke-GitLogShort
 Set-Alias -Option AllScope -Force -Name "gsl" -Value Invoke-GitStashList
 Set-Alias -Option AllScope -Force -Name "rmrf" -Value Remove-ItemForce
 Set-Alias -Option AllScope -Force -Name "v" -Value "nvim"
-Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
 Set-Alias -Option AllScope -Force -Name "fdhnoi" -Value Invoke-FdHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "fdnohi" -Value Invoke-FdHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "rghnoi" -Value Invoke-RgHiddenNoIgnore
 Set-Alias -Option AllScope -Force -Name "rgnohi" -Value Invoke-RgHiddenNoIgnore
 Set-Alias -Force -Name "^" -Value Select-Object
+if ($IsWindows) {
+	Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-Neovide
+} else {
+	Set-Alias -Option AllScope -Force -Name "vv" -Value Invoke-KittyNeovim
+}
 
 function Get-CommandSource {
 	param (

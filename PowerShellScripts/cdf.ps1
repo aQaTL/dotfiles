@@ -1,5 +1,7 @@
 function cdf {
-	[string]$path = (fd --type dir | fzf)
+	$Arguments = $Args -join " "
+
+	[string]$path = (fd --type dir | fzf -q $Arguments)
 	if (-not $?) {
 		return
 	}

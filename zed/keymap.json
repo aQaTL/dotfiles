@@ -23,6 +23,12 @@
     },
   },
   {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "ctrl-c": "editor::Copy"
+    }
+  },
+  {
     "context": "vim_mode == normal",
     "bindings": {
       "space f": "file_finder::Toggle",
@@ -40,6 +46,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-v": "editor::Paste",
       "F1": "editor::Hover",
       "F2": "project_symbols::Toggle",
       "F3": "buffer_search::Deploy",

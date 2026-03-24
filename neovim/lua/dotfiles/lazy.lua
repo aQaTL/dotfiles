@@ -15,12 +15,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Load custom plugins if available
+local custom_ok, custom = pcall(require, "dotfiles.custom")
+local custom_plugins = custom_ok and custom.plugins or {}
+
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = {
+  spec = vim.list_extend({
     -- import your plugins
     { import = "plugins" },
-  },
+  }, custom_plugins),
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },

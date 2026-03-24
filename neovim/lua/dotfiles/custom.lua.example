@@ -1,0 +1,34 @@
+-- Custom private configuration
+-- This file is not tracked in git
+--
+-- To use this file:
+-- 1. Copy this file to custom.lua in the same directory
+-- 2. Modify the configuration below as needed
+-- 3. The file will be automatically loaded by init.lua
+--
+-- Example usage:
+
+return {
+  -- Private plugins loaded by lazy.nvim
+  plugins = {
+    -- Example: Local plugin from absolute path
+    -- {
+    --   dir = "/home/username/path/to/plugin",
+    --   name = "my-plugin",
+    --   lazy = false,
+    -- },
+    
+    -- Example: Private GitHub repository
+    -- {
+    --   "private-org/private-repo",
+    --   config = function()
+    --     -- Plugin configuration here
+    --   end,
+    -- },
+  },
+  
+  -- You can add other custom configuration here
+  -- For example:
+  -- keymaps = { ... },
+  -- options = { ... },
+}

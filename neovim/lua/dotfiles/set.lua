@@ -46,6 +46,15 @@ vim.opt.cursorline = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Turn on spellcheck for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en"
+	end,
+})
+
 if vim.loop.os_uname().sysname == "Darwin" then
 	vim.opt.guifont = "Cascadia Mono:h18"
 elseif vim.loop.os_uname().sysname == "Linux" then

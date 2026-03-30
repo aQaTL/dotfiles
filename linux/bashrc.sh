@@ -42,7 +42,9 @@ fi
 
 PS1="\[\e[3${prompt_username_color}m\]\u\[\e[m\]|\[\e[33m\]\w\[\e[m\]\\$ "
 
-export BAT_THEME=gruvbox-dark
+if [[ ! -v BAT_THEME ]]; then
+	export BAT_THEME=gruvbox-dark
+fi
 
 #source "${BASH_SOURCE%/*}/ls_after_cd.sh"
 

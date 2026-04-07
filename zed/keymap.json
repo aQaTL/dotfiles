@@ -12,14 +12,20 @@
       // "shift shift": "file_finder::Toggle"
       "alt-1": "vim::ToggleProjectPanelFocus",
       "ctrl-shift-f": "project_search::SearchInNew",
-      "F6": "task::Spawn"
-    }
+      "F6": "task::Spawn",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": "vim::NormalBefore",
-      "k j": "vim::NormalBefore"
+      "k j": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "ctrl-c": "editor::Copy"
     }
   },
   {
@@ -34,38 +40,55 @@
       "space 6": ["pane::ActivateItem", 5],
       "space 7": ["pane::ActivateItem", 6],
       "space 8": ["pane::ActivateItem", 7],
-      "space 9": ["pane::ActivateItem", 8]
-    }
+      "space 9": ["pane::ActivateItem", 8],
+    },
   },
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-v": "editor::Paste",
       "F1": "editor::Hover",
       "F2": "project_symbols::Toggle",
       "F3": "buffer_search::Deploy",
       "shift-F3": "buffer_search::DeployReplace",
       "ctrl-l": "workspace::ActivateNextPane",
-      "ctrl-shift-o": "project_symbols::Toggle"
-    }
+      "ctrl-shift-o": "project_symbols::Toggle",
+      "alt-,": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "left",
+          "focus": true,
+          "clone": false,
+        },
+      ],
+      "alt-.": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "right",
+          "focus": true,
+          "clone": false,
+        },
+      ],
+    },
   },
   {
     "context": "!Editor",
     "bindings": {
-      "F2": "file_finder::Toggle"
-    }
+      "F2": "file_finder::Toggle",
+    },
   },
   {
     "context": "!ProjectPanel",
     "bindings": {
-      "alt-1": "project_panel::ToggleFocus"
-    }
+      "alt-1": "project_panel::ToggleFocus",
+    },
   },
   {
     "context": "ProjectPanel",
     "bindings": {
       "alt-1": "workspace::ToggleRightDock",
       "ctrl-shift-n": "project_panel::NewFile",
-      "ctrl-alt-shift-n": "project_panel::NewDirectory"
-    }
-  }
+      "ctrl-alt-shift-n": "project_panel::NewDirectory",
+    },
+  },
 ]

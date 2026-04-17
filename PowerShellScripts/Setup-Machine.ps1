@@ -9,7 +9,8 @@ function Setup-Machine {
 			"Install-BatConfig", 
 			"Setup-GSettings",
 			"Install-GitDelta",
-			"Setup-GitConfig"
+			"Setup-GitConfig",
+			"Install-OpencodeConfig"
 		)]
 		[String[]]$Command
 	)
@@ -263,4 +264,18 @@ function Setup-GitConfig {
 		Write-Host $it.Value -ForegroundColor Magenta
 		git config set --global $it.key $it.value
 	}
+}
+
+function Install-OpencodeConfig {
+	Set-StrictMode -Version Latest
+	$ErrorActionPreference = "Stop"
+
+	$DotfilesDir = Get-Dotfilesdir
+	$OpencodeConifgDir = "${HOME}/.config/opencode"
+
+	New-Item -ItemType Directory $OpencodeConifgDir -ErrorAction Ignore 
+	New-Item -ItemType Directory $OpencodeConifgDir/agents -ErrorAction Ignore
+
+ 	print_cmd_and_execute ln -s ${DotfilesDir}/opencode/tui.json $OpencodeConifgDir/tui.json
+	print_cmd_and_execute ln -s ${DotfilesDir}/opencode/agents/* $OpencodeConifgDir/agents/
 }

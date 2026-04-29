@@ -396,6 +396,13 @@ if ($IsLinux -or $IsMacOS) {
 	Set-PSReadLineKeyHandler -Chord "Ctrl+Alt+Enter" -Function InsertLineBelow
 }
 
+# Before a command runs, send an escape code that marks the command output start
+Set-PSReadLineKeyHandler -Key Enter -ScriptBlock {
+    param($key, $arg)
+    [Console]::Out.Write("`e]133;C`a")   # send escape code
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
 # Register rustup and cargo completions
 if ($null -ne (Get-Command -ErrorAction SilentlyContinue rustup)) {
 	rustup completions powershell rustup | Join-String -Separator "`n" | Invoke-Expression

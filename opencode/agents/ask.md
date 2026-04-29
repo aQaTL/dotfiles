@@ -4,9 +4,13 @@ mode: primary
 model: github-copilot/gpt-5.4
 temperature: 0.2
 permission:
-	edit: deny:
+	edit: deny
+	grep: allow
+	glob: allow
 	bash:
 		"*": ask
+		"grep *": allow
+		"find *": allow
 	webfetch: allow
 ---
 

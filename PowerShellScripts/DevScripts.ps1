@@ -1,4 +1,4 @@
-function pr_review_reset_to_merge_base {
+function pr_review_start_reset_to_merge_base {
 	Set-StrictMode -Version 3.0
 	$ErrorActionPreference = "Stop"
 	$PSNativeCommandUseErrorActionPreference = $true
@@ -9,7 +9,7 @@ function pr_review_reset_to_merge_base {
 	return $null
 }
 
-function pr_review_reset_back_to_origin {
+function pr_review_end_reset_back_to_origin {
 	Set-StrictMode -Version 3.0
 	$ErrorActionPreference = "Stop"
 	$PSNativeCommandUseErrorActionPreference = $true

@@ -87,8 +87,8 @@ FunctionsToExport = @(
 	"Get-Abbreviations",
 	"cdf",
 	"Setup-Machine"
-	"pr_review_reset_to_merge_base",
-	"pr_review_reset_back_to_origin",
+	"pr_review_start_reset_to_merge_base",
+	"pr_review_end_reset_back_to_origin",
 	"print_cmd_and_execute"
 )
 

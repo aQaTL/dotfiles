@@ -1,5 +1,8 @@
 #!/usr/local/bin/pwsh
 
+$OSC = "`e]"
+$ST = "`e\"
+
 function Prompt {
 	[string]$currentDir = (Get-Location).Path
 	if ($currentDir.StartsWith($HOME)) {
@@ -19,14 +22,15 @@ function Prompt {
 	}
 
 	if ($IsWindows -and (Test-Path Env:\WT_SESSION) -or $env:TERM -match "xterm|rxvt") {
-		Write-Host "`e]0;${userSign}${hostname_} ${currentDir}`a" -NoNewLine
+		Write-Host "${OSC}0;${userSign}${hostname_} ${currentDir}${ST}" -NoNewLine
 	}
 
 	$usernameColor = ([System.Environment]::GetEnvironmentVariable("SSH_CONNECTION") -eq $null) `
 		? "3" `
 		: "1"
 
-	Write-Host "`e]133;A`a" -NoNewline
+	Write-Host "${OSC}133;D;${LASTEXITCODE}}${ST}" -NoNewline
+	Write-Host "${OSC}133;A${ST}" -NoNewline
 
 	Write-Host "${global:username}" -NoNewLine -ForegroundColor $usernameColor
 	Write-Host "|" -NoNewLine
@@ -34,7 +38,7 @@ function Prompt {
 	Write-Host "$($currentDir)" -NoNewLine -ForegroundColor 6
 	Write-Host "$" -NoNewLine
 
-	Write-Host "`e]133;B`a" -NoNewline
+	Write-Host "${OSC}133;B${ST}" -NoNewline
 
 	" "
 }
@@ -158,19 +162,19 @@ function Invoke-GitStashList {
 
 function Invoke-CargoClippy {
 	$fmtArgs = $Args | Join-String -Separator " "
-	Write-Host "`e]0;cargo clippy --workspace ${fmtArgs}`a" -NoNewline
+	Write-Host "${OSC}0;cargo clippy --workspace ${fmtArgs}${ST}" -NoNewline
 	cargo clippy --workspace @Args
 }
 
 function Invoke-CargoClippyAllTargets {
 	$fmtArgs = $Args | Join-String -Separator " "
-	Write-Host "`e]0;cargo clippy --workspace --all-targets ${fmtArgs}`a" -NoNewline
+	Write-Host "${OSC}0;cargo clippy --workspace --all-targets ${fmtArgs}${ST}" -NoNewline
 	cargo clippy --workspace --all-targets @Args
 }
 
 function Invoke-CargoFormat {
 	$fmtArgs = $Args | Join-String -Separator " "
-	Write-Host "`e]0;cargo fmt ${fmtArgs}`a" -NoNewline
+	Write-Host "${OSC}0;cargo fmt ${fmtArgs}${ST}" -NoNewline
 	cargo fmt @Args
 }
 
@@ -399,8 +403,8 @@ if ($IsLinux -or $IsMacOS) {
 # Before a command runs, send an escape code that marks the command output start
 Set-PSReadLineKeyHandler -Key Enter -ScriptBlock {
     param($key, $arg)
-    [Console]::Out.Write("`e]133;C`a")   # send escape code
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+    [Console]::Out.Write("${OSC}133;C${ST}")   # send escape code
 }
 
 # Register rustup and cargo completions

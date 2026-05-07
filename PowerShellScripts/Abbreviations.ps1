@@ -53,3 +53,6 @@ function Expand-Abbreviation {
 	[PSConsoleReadLine]::SetCursorPosition($desiredCursorPos)
 }
 
+function Get-Abbreviations {
+	return $global:abbreviations
+}

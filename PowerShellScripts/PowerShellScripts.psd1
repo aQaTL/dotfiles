@@ -84,6 +84,7 @@ FunctionsToExport = @(
 	"Start-SshAgentBridge",
 	"Register-Expand-Abbreviation",
 	"Expand-Abbreviation",
+	"Get-Abbreviations",
 	"cdf",
 	"Setup-Machine"
 	"pr_review_reset_to_merge_base",

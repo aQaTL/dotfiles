@@ -23,7 +23,7 @@ function pr_review_end_reset_back_to_origin {
 function print_cmd_and_execute {
 	[string]$cmd = $Args -join " "
 	Write-Host $cmd -ForegroundColor Magenta
-	[string[]]$cmd_output = $cmd | Invoke-Expression | Out-String -Stream
+	[string[]]$cmd_output = Invoke-Expression $cmd | Out-String -Stream
 	if (${cmd_output}?.Count -ne 0 -and -not [string]::IsNullOrWhiteSpace(${cmd_output}?[0])) {
 		Write-Host $cmd_output
 	}

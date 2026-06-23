@@ -162,6 +162,21 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
+" Copy with OSC52 escape code. Useful for ssh sessions.
+function! Osc52Copy(text) abort
+  let l:encoded = system('base64 | tr -d "\n"', a:text)
+
+  let l:esc = nr2char(27)
+  let l:bel = nr2char(7)
+
+  let l:seq = l:esc . ']52;c;' . l:encoded . l:bel
+
+  call writefile([l:seq], '/dev/tty', 'b')
+endfunction
+
+xnoremap <silent> <leader>y y:call Osc52Copy(getreg('"'))<CR>
+nnoremap <silent> <leader>Y yy:call Osc52Copy(getreg('"'))<CR>
+
 " HTML auto-complete
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 

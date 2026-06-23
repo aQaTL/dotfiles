@@ -31,3 +31,19 @@ function print_cmd_and_execute {
 }
 
 Set-Alias -Name ex -Scope Script -Value print_cmd_and_execute
+
+function print_script_block_and_execute {
+	param(
+		[Parameter(Mandatory = $true)]
+		[scriptblock]$script
+	)
+
+	Write-Host "${script}".Trim() -ForegroundColor Magenta
+	$cmd_output = & $script
+	if ($null -ne $cmd_output) {
+		Write-Host $cmd_output
+	}
+	return $cmd_output
+}
+
+Set-Alias -Name sb_ex -Scope Script -Value print_script_block_and_execute

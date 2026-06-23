@@ -89,7 +89,8 @@ FunctionsToExport = @(
 	"Setup-Machine"
 	"pr_review_start_reset_to_merge_base",
 	"pr_review_end_reset_back_to_origin",
-	"print_cmd_and_execute"
+	"print_cmd_and_execute",
+	"print_script_block_and_execute"
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
@@ -99,7 +100,7 @@ CmdletsToExport = @()
 VariablesToExport = '*'
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = @("openwin")
+AliasesToExport = @("openwin", "ex", "sb_ex")
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()

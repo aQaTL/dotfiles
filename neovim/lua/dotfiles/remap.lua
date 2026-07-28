@@ -46,3 +46,10 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
+
+-- F10 to toggle line wrap
+vim.keymap.set("n", "<F10>", function ()
+		vim.cmd([[set wrap!]])
+	end,
+	{}
+)

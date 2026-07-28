@@ -91,11 +91,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		vim.lsp.completion.enable(true, args.data.client_id, bufnr, { autotrigger = true })
 
-		vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { 
+		vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, {
 			desc = "trigger autocompletion",
 		})
 
-		if client.server_capabilities.documentHighlightProvider then 
+		if client.server_capabilities.documentHighlightProvider then
 			vim.api.nvim_create_autocmd({ "CursorHold" }, {
                 buffer = bufnr,
 				callback = function(ev)

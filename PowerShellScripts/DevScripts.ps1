@@ -20,6 +20,23 @@ function pr_review_end_reset_back_to_origin {
 	return $null
 }
 
+function pr_worktree { 
+	param (
+		[Parameter(Mandatory = $true)]
+		[string]$branch_name
+	)
+
+	Set-StrictMode -Version 3.0
+	$ErrorActionPreference = "Stop"
+	$PSNativeCommandUseErrorActionPreference = $true
+
+	$repo_path = git rev-parse --show-toplevel
+	$repo_filename = Split-Path -Leaf $repo_path
+	$worktree_name = "${repo_filename}_$($branch_name -replace "/|_", "-")"
+	$worktree_path = Join-Path (Split-Path -Parent $repo_path) $worktree_name
+	ex "git worktree add $worktree_path $branch_name"
+}
+
 function print_cmd_and_execute {
 	[string]$cmd = $Args -join " "
 	Write-Host $cmd -ForegroundColor Magenta

@@ -89,6 +89,7 @@ FunctionsToExport = @(
 	"Setup-Machine"
 	"pr_review_start_reset_to_merge_base",
 	"pr_review_end_reset_back_to_origin",
+	"pr_worktree",
 	"print_cmd_and_execute",
 	"print_script_block_and_execute"
 )

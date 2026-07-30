@@ -22,7 +22,10 @@ function pr_review_end_reset_back_to_origin {
 
 function pr_worktree { 
 	param (
-		[Parameter(Mandatory = $true)]
+		[Parameter(
+			Mandatory = $true,
+			ValueFromPipeline = $true
+		)]
 		[string]$branch_name
 	)
 

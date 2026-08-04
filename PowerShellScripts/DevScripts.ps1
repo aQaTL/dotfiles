@@ -26,7 +26,9 @@ function pr_worktree {
 			Mandatory = $true,
 			ValueFromPipeline = $true
 		)]
-		[string]$branch_name
+		[string]$branch_name,
+
+		[switch]$open
 	)
 
 	Set-StrictMode -Version 3.0
@@ -38,6 +40,14 @@ function pr_worktree {
 	$worktree_name = "${repo_filename}_$($branch_name -replace "/|_", "-")"
 	$worktree_path = Join-Path (Split-Path -Parent $repo_path) $worktree_name
 	ex "git worktree add $worktree_path $branch_name"
+
+	if (-not $open) {
+		return
+	}
+
+	kitten '@' action new_tab
+	start-sleep -Seconds 2
+	kitten '@' send-text --match 'state:focused' "cd $worktree_path`r"  
 }
 
 function print_cmd_and_execute {

@@ -50,6 +50,18 @@ function pr_worktree {
 	kitten '@' send-text --match 'state:focused' "cd $worktree_path`r"  
 }
 
+function git_checkout_fuzzy_search {
+	Set-StrictMode -Version 3.0
+
+	[string]$branch_name = git branch --format='%(refname:short)' | fzf
+	if (-not $?) {
+		return
+	}
+	ex git checkout $branch_name 
+}
+
+Set-Alias -Name gco -Scope Script -Value git_checkout_fuzzy_search 
+
 function print_cmd_and_execute {
 	[string]$cmd = $Args -join " "
 	Write-Host $cmd -ForegroundColor Magenta

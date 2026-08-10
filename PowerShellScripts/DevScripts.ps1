@@ -53,7 +53,11 @@ function pr_worktree {
 function git_checkout_fuzzy_search {
 	Set-StrictMode -Version 3.0
 
-	[string]$branch_name = git branch --format='%(refname:short)' | fzf
+	[string[]]$branches = git branch --format='%(refname:short)'
+	if (-not $?) {
+		return
+	}
+	[string]$branch_name = $branches | fzf
 	if (-not $?) {
 		return
 	}

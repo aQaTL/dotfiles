@@ -1,7 +1,7 @@
 ---
 description: Generic AI chatbot
 mode: primary
-model: github-copilot/gpt-5.4
+model: github-copilot/gpt-5.6-terra
 temperature: 0.6
 permission:
     edit: deny:

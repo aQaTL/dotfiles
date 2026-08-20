@@ -1,7 +1,7 @@
 ---
 description: Answers one-off quesitons
 mode: primary
-model: github-copilot/gpt-5.4
+model: github-copilot/gpt-5.6-terra
 temperature: 0.2
 permission:
     edit: deny

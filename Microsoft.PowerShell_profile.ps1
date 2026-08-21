@@ -330,6 +330,7 @@ $env:LANGUAGE = "en_US"
 
 function Set-LocationWithBat {
 	param (
+		[Parameter(ValueFromPipeline = $true)]
 		[string]$Path
 	)
 

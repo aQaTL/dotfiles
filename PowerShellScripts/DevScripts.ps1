@@ -1,9 +1,14 @@
 function pr_review_start_reset_to_merge_base {
+	param (
+		[Parameter(ValueFromPipeline = $true)]
+		[string]$MergeBase = "master"
+	)
+
 	Set-StrictMode -Version 3.0
 	$ErrorActionPreference = "Stop"
 	$PSNativeCommandUseErrorActionPreference = $true
 
-	$merge_base_commit_hash = ex "git merge-base HEAD master"
+	$merge_base_commit_hash = ex "git merge-base HEAD ${MergeBase}"
 	[void](ex "git reset --soft $merge_base_commit_hash")
 
 	return $null

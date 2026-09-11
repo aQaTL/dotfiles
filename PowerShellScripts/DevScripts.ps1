@@ -55,6 +55,27 @@ function pr_worktree {
 	kitten '@' send-text --match 'state:focused' "cd $worktree_path`r"  
 }
 
+function pr_worktree_remove { 
+	param (
+		[switch]$force
+	)
+
+	Set-StrictMode -Version 3.0
+	$ErrorActionPreference = "Stop"
+	$PSNativeCommandUseErrorActionPreference = $true
+
+	$paths = ex "git rev-parse --show-toplevel --git-common-dir"
+	$repo_path = $paths[0]
+	$original_repo_path = $paths[1]
+
+	ex "Set-Location $original_repo_path"
+
+	$force_arg = $force ? "--force" : "" 
+	ex "git worktree remove $repo_path $force_arg"
+
+	ex "Set-Location .."
+}
+
 function git_checkout_fuzzy_search {
 	Set-StrictMode -Version 3.0
 
@@ -76,7 +97,7 @@ function print_cmd_and_execute {
 	Write-Host $cmd -ForegroundColor Magenta
 	[string[]]$cmd_output = Invoke-Expression $cmd | Out-String -Stream
 	if (${cmd_output}?.Count -ne 0 -and -not [string]::IsNullOrWhiteSpace(${cmd_output}?[0])) {
-		Write-Host $cmd_output
+		Write-Host ($cmd_output -join "`n")
 	}
 	return $cmd_output
 }

@@ -92,6 +92,7 @@ FunctionsToExport = @(
 	"pr_review_start_reset_to_merge_base",
 	"pr_review_end_reset_back_to_origin",
 	"pr_worktree",
+	"pr_worktree_remove",
 	"git_checkout_fuzzy_search",
 	"print_cmd_and_execute",
 	"print_script_block_and_execute"

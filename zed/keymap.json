@@ -13,6 +13,7 @@
       "alt-1": "vim::ToggleProjectPanelFocus",
       "ctrl-shift-f": "project_search::SearchInNew",
       "F6": "task::Spawn",
+      "alt-w": ["pane::CloseActiveItem", { "close_pinned": false }],
     },
   },
   {
@@ -53,6 +54,7 @@
       "shift-F3": "buffer_search::DeployReplace",
       "ctrl-l": "workspace::ActivateNextPane",
       "ctrl-shift-o": "project_symbols::Toggle",
+      "F9": "project_symbols::Toggle",
       "alt-,": [
         "workspace::MoveItemToPaneInDirection",
         {

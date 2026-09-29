@@ -40,6 +40,8 @@ function pr_worktree {
 	$ErrorActionPreference = "Stop"
 	$PSNativeCommandUseErrorActionPreference = $true
 
+	$branch_name = $branch_name.Trim()
+
 	$repo_path = git rev-parse --show-toplevel
 	$repo_filename = Split-Path -Leaf $repo_path
 	$worktree_name = "${repo_filename}_$($branch_name -replace "/|_", "-")"

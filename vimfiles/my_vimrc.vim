@@ -99,8 +99,10 @@ set fileformat=unix
 " autocmd FileType markdown setlocal syntax=OFF 
 
 " Enable spellcheck for markdown files
-autocmd FileType markdown setlocal spell
-autocmd FileType markdown setlocal spelllang=en
+if ! has("ide")
+	autocmd FileType markdown setlocal spell
+	autocmd FileType markdown setlocal spelllang=en
+endif
 
 " Tweaks for builtin file browser
 let g:netrw_banner=0

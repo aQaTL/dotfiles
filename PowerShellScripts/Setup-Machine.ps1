@@ -176,6 +176,16 @@ function Setup-GSettings {
 			Path = "org.gnome.desktop.wm.keybindings";
 			Key = "move-to-center";
 			Value = "`"['<Super>Return']`"";
+		},
+		[Setting]@{
+			Path = "org.gnome.desktop.wm.keybindings";
+			Key = "switch-to-workspace-right";
+			Value = "`"['<Super>w']`"";
+		},
+		[Setting]@{
+			Path = "org.gnome.desktop.wm.keybindings";
+			Key = "switch-to-workspace-left";
+			Value = "`"['<Super>q']`"";
 		}
 	)
 	

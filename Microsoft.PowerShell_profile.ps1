@@ -375,14 +375,44 @@ enum ColorPreference {
 }
 $global:ThemeColorPreference = [ColorPreference]::dark
 
+# Register rustup and cargo completions
+if ($null -ne (Get-Command -ErrorAction SilentlyContinue rustup)) {
+	rustup completions powershell rustup | Join-String -Separator "`n" | Invoke-Expression
+}
+
 if ($IsLinux) {
 	$env:PATH += $PathSep + (Join-Path $HOME .cargo bin)
 
-    $ExecutionContext.InvokeCommand.CommandNotFoundAction += {
-        param (
-            [string]$commandName
-        )
-		/usr/lib/command-not-found --no-failure-msg $commandName
+	[string[]]$os_release = Get-Content /etc/os-release
+	[string]$distro = ""
+	foreach ($entry in $os_release) {
+		if ($entry.StartsWith("ID=")) {
+			$distro = $entry.Split("=")[1]
+			break;
+		}
+	}
+	if (-not $distro) {
+		throw "distro id not found"
+	}
+
+	[string]$command_not_found_path = "/usr/bin/false"
+	[string[]]$command_not_found_args = @()
+	switch ($distro) {
+		"ubuntu" {
+			[string]$command_not_found_path = "/usr/lib/command-not-found"
+			[string[]]$command_not_found_args = @("--no-failure-msg")
+		}
+		"fedora" {
+			[string]$command_not_found_path = "/usr/libexec/pk-command-not-found"
+			[string[]]$command_not_found_args = @()
+		}
+	}
+
+	$ExecutionContext.InvokeCommand.CommandNotFoundAction += {
+		param (
+		    [string]$commandName
+		)
+		& $command_not_found_path @command_not_found_args $commandName
 	}
 	
 	$global:ThemeColorPreference = 
@@ -406,11 +436,6 @@ Set-PSReadLineKeyHandler -Key Enter -ScriptBlock {
     param($key, $arg)
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
     [Console]::Out.Write("${OSC}133;C${ST}")   # send escape code
-}
-
-# Register rustup and cargo completions
-if ($null -ne (Get-Command -ErrorAction SilentlyContinue rustup)) {
-	rustup completions powershell rustup | Join-String -Separator "`n" | Invoke-Expression
 }
 
 # Additonal scripts, not commited

@@ -85,9 +85,15 @@ return {
 		tag = "v1.12.0",
 		config = function()
 			require("nvim-tree").setup({
+				sync_root_with_cwd = true,
+				respect_buf_cwd = true,
 				actions = {
 					open_file = {
 						quit_on_open = true,
+					},
+					change_dir = {
+						enable = true,
+						global = true,
 					}
 				}
 			})

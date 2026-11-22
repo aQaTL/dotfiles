@@ -47,16 +47,17 @@ function RefreshEnv {
 	& $PROFILE
 }
 
-$global:HOSTNAME="$(hostname)"
 
 $PathSep = [IO.Path]::PathSeparator
 
 if ($IsWindows) {
 	$global:IsRoot = [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") 
 	$username = $env:USERNAME
+	$global:HOSTNAME="$(hostname)"
 } else {
 	$username = $env:USER
 	$global:IsRoot=(id -u) -eq 0
+	$global:HOSTNAME=Get-Content /proc/sys/kernel/hostname 
 }
 
 function Invoke-ExaLong {
@@ -416,7 +417,7 @@ if ($IsLinux) {
 	}
 	
 	$global:ThemeColorPreference = 
-		(gsettings get org.gnome.desktop.interface color-scheme).Contains("light") `
+		(gsettings get org.gnome.desktop.interface color-scheme 2> /dev/null)?.Contains("light") `
 		? [ColorPreference]::Light : [ColorPreference]::Dark
 
 }
